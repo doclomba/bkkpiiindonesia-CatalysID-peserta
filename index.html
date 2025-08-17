@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatalysID - Ekosistem Digital Pendidikan & Industri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .hero-bg {
+            background-color: #f9fafb;
+            background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            color: white;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div id="app-container">
+
+        <div id="landing-page">
+            <header class="fixed top-0 left-0 right-0 z-50 glassmorphism">
+                <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                    <a href="#" class="text-2xl font-bold text-gray-900">Catalys<span class="text-blue-600">ID</span></a>
+                    <div class="hidden md:flex items-center space-x-8 text-gray-700">
+                        <a href="#features" class="hover:text-blue-600 transition-colors">Fitur</a>
+                        <a href="#about" class="hover:text-blue-600 transition-colors">Tentang</a>
+                        <a href="#contact" class="hover:text-blue-600 transition-colors">Kontak</a>
+                    </div>
+                    <button id="login-nav-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-transform transform hover:scale-105">Masuk</button>
+                </nav>
+            </header>
+
+            <main>
+                <section class="hero-bg pt-32 pb-20 text-center">
+                    <div class="container mx-auto px-6">
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-900">Menyelaraskan Pendidikan dengan Industri</h1>
+                        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">Ekosistem digital terintegrasi untuk mengakselerasi talenta Indonesia melalui 6 pilar utama C.A.N.D.L.E.</p>
+                        <button id="get-started-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105">Mulai Sekarang</button>
+                    </div>
+                </section>
+
+                <section id="features" class="py-20 bg-gray-100">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Enam Pilar Utama CatalysID</h2>
+                            <p class="text-gray-500 mt-2">Memperkenalkan C.A.N.D.L.E. - Kerangka kerja komprehensif kami.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="feature-card bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                                <div class="feature-icon bg-blue-100 text-blue-600 rounded-full p-4 w-16 h-16 mb-6 flex items-center justify-center">
+                                    <i data-lucide="award" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">C - Certification</h3>
+                                <p class="text-gray-500">Pusat persiapan dan pendaftaran sertifikasi terakreditasi (BNSP & internasional) dengan modul latihan dan try-out berbasis AI.</p>
+                            </div>
+                            <div class="feature-card bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                                <div class="feature-icon bg-green-100 text-green-600 rounded-full p-4 w-16 h-16 mb-6 flex items-center justify-center">
+                                    <i data-lucide="briefcase" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">A - Apprenticeship</h3>
+                                <p class="text-gray-500">Marketplace magang terstruktur yang menghubungkan mahasiswa dengan lowongan spesifik dari industri, lengkap dengan portofolio digital.</p>
+                            </div>
+                            <div class="feature-card bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                                <div class="feature-icon bg-purple-100 text-purple-600 rounded-full p-4 w-16 h-16 mb-6 flex items-center justify-center">
+                                    <i data-lucide="users" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">N - Networking</h3>
+                                <p class="text-gray-500">Fitur link and match proaktif yang memungkinkan perusahaan menemukan talenta berdasarkan keahlian dan rekam jejak.</p>
+                            </div>
+                            <div class="feature-card bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                                <div class="feature-icon bg-yellow-100 text-yellow-600 rounded-full p-4 w-16 h-16 mb-6 flex items-center justify-center">
+                                    <i data-lucide="cpu" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">D - Digital Simulation</h3>
+                                <p class="text-gray-500">Laboratorium virtual (dry lab) untuk berlatih mengoperasikan instrumen canggih dan memahami proses industri secara interaktif.</p>
+                            </div>
+                            <div class="feature-card bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                                <div class="feature-icon bg-red-100 text-red-600 rounded-full p-4 w-16 h-16 mb-6 flex items-center justify-center">
+                                    <i data-lucide="flask-conical" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">L - Laboratory Access</h3>
+                                <p class="text-gray-500">Platform sharing economy untuk menyewa akses laboratorium fisik (wet lab) antar institusi dengan biaya terjangkau.</p>
+                            </div>
+                            <div class="feature-card bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                                <div class="feature-icon bg-indigo-100 text-indigo-600 rounded-full p-4 w-16 h-16 mb-6 flex items-center justify-center">
+                                    <i data-lucide="gamepad-2" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">E - Edutainment</h3>
+                                <p class="text-gray-500">Pembelajaran berbasis gamifikasi (kuis, poin, lencana) dengan rekomendasi personal dari AI untuk meningkatkan motivasi belajar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div id="auth-page" class="hidden min-h-screen flex items-center justify-center bg-gray-100 hero-bg p-4">
+            <div class="w-full max-w-md">
+                <div class="glassmorphism p-8 rounded-2xl shadow-2xl bg-white/50">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-900">Catalys<span class="text-blue-600">ID</span></h2>
+                        <p id="auth-title" class="text-gray-600 mt-2">Selamat Datang Kembali!</p>
+                    </div>
+                    
+                    <div id="auth-error" class="hidden bg-red-100 text-red-700 p-3 rounded-lg mb-4 text-center"></div>
+
+                    <form id="login-form">
+                        <div class="mb-4">
+                            <label for="login-email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="login-email" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="login-password" class="block text-gray-700 mb-2">Password</label>
+                            <input type="password" id="login-password" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-transform transform hover:scale-105">Masuk</button>
+                    </form>
+
+                    <form id="signup-form" class="hidden">
+                        <div class="mb-4">
+                            <label for="signup-email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="signup-email" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="signup-password" class="block text-gray-700 mb-2">Password</label>
+                            <input type="password" id="signup-password" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                         <div class="mb-6">
+                            <label for="signup-confirm-password" class="block text-gray-700 mb-2">Konfirmasi Password</label>
+                            <input type="password" id="signup-confirm-password" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition-transform transform hover:scale-105">Daftar</button>
+                    </form>
+
+                    <p class="text-center text-gray-600 mt-6">
+                        <span id="auth-switch-text">Belum punya akun?</span>
+                        <button id="auth-switch-btn" class="text-blue-600 hover:underline font-semibold">Daftar Sekarang</button>
+                    </p>
+                </div>
+                 <button id="back-to-landing-btn" class="mt-6 text-gray-500 hover:text-gray-800 flex items-center justify-center w-full"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Kembali ke Beranda</button>
+            </div>
+        </div>
+
+        <div id="main-app" class="hidden">
+            <div class="flex h-screen bg-gray-100 text-gray-800">
+                <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+                    <div class="h-20 flex items-center justify-center border-b border-gray-200">
+                        <h1 class="text-2xl font-bold text-gray-900">Catalys<span class="text-blue-600">ID</span></h1>
+                    </div>
+                    <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                        <a href="#" data-page="dashboard" class="nav-link bg-blue-100 text-blue-700 flex items-center px-4 py-3 rounded-lg font-semibold">
+                            <i data-lucide="layout-dashboard" class="w-5 h-5 mr-3"></i> Dashboard
+                        </a>
+                        <p class="px-4 pt-4 pb-2 text-xs text-gray-400 font-semibold uppercase">Pilar C.A.N.D.L.E.</p>
+                        <a href="#" data-page="certification" class="nav-link text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center px-4 py-3 rounded-lg">
+                            <i data-lucide="award" class="w-5 h-5 mr-3"></i> Certification
+                        </a>
+                        <a href="#" data-page="apprenticeship" class="nav-link text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center px-4 py-3 rounded-lg">
+                            <i data-lucide="briefcase" class="w-5 h-5 mr-3"></i> Apprenticeship
+                        </a>
+                        <a href="#" data-page="networking" class="nav-link text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center px-4 py-3 rounded-lg">
+                            <i data-lucide="users" class="w-5 h-5 mr-3"></i> Networking
+                        </a>
+                        <a href="#" data-page="simulation" class="nav-link text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center px-4 py-3 rounded-lg">
+                            <i data-lucide="cpu" class="w-5 h-5 mr-3"></i> Digital Simulation
+                        </a>
+                        <a href="#" data-page="laboratory" class="nav-link text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center px-4 py-3 rounded-lg">
+                            <i data-lucide="flask-conical" class="w-5 h-5 mr-3"></i> Laboratory Access
+                        </a>
+                        <a href="#" data-page="edutainment" class="nav-link text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center px-4 py-3 rounded-lg">
+                            <i data-lucide="gamepad-2" class="w-5 h-5 mr-3"></i> Edutainment
+                        </a>
+                        <p class="px-4 pt-4 pb-2 text-xs text-gray-400 font-semibold uppercase">Akun</p>
+                        <a href="#" data-page="settings" class="nav-link text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center px-4 py-3 rounded-lg">
+                            <i data-lucide="settings" class="w-5 h-5 mr-3"></i> Pengaturan
+                        </a>
+                    </nav>
+                    <div class="p-4 border-t border-gray-200">
+                        <div id="user-profile" class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold text-white mr-3" id="user-initial"></div>
+                            <div>
+                                <p class="text-sm font-semibold text-gray-800" id="user-email-display">user@example.com</p>
+                                <button id="logout-btn" class="text-xs text-red-600 hover:underline">Keluar</button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+                    <div id="page-dashboard" class="page-content relative">
+                        <div id="dashboard-content" class="transition-all duration-500">
+                            <h2 class="text-3xl font-bold mb-6 text-gray-900">Dashboard Diagnostik</h2>
+                             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                 <!-- Chart Daya Ingat -->
+                                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                     <h3 class="text-xl font-bold text-center mb-4 text-blue-600">Daya Ingat</h3>
+                                     <div class="relative w-48 h-48 mx-auto">
+                                         <canvas id="recall-chart"></canvas>
+                                         <div id="recall-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
+                                     </div>
+                                     <p id="recall-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
+                                 </div>
+                                 <!-- Chart Daya Nalar -->
+                                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                     <h3 class="text-xl font-bold text-center mb-4 text-green-600">Daya Nalar</h3>
+                                     <div class="relative w-48 h-48 mx-auto">
+                                         <canvas id="reasoning-chart"></canvas>
+                                         <div id="reasoning-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
+                                     </div>
+                                     <p id="reasoning-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
+                                 </div>
+                                 <!-- Chart Kompetensi Teknis -->
+                                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                     <h3 class="text-xl font-bold text-center mb-4 text-yellow-500">Kompetensi Teknis</h3>
+                                     <div class="relative w-48 h-48 mx-auto">
+                                         <canvas id="technical-chart"></canvas>
+                                         <div id="technical-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
+                                     </div>
+                                     <p id="technical-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
+                                 </div>
+                             </div>
+                        </div>
+                        <div id="screening-overlay" class="absolute inset-0 bg-gray-100/50 backdrop-blur-md flex items-center justify-center z-10 rounded-lg">
+                            <div class="text-center p-8 bg-white rounded-xl shadow-2xl border border-gray-200">
+                                <h2 class="text-2xl font-bold mb-2 text-gray-900">Selamat Datang!</h2>
+                                <p class="text-gray-600 mb-6 max-w-sm">Untuk mempersonalisasi pengalaman belajar Anda, mari kita mulai dengan screening singkat untuk memahami gaya belajar Anda.</p>
+                                <button id="start-screening-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg">Screening Gaya Belajarmu Yuk!</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certification Page -->
+                    <div id="page-certification" class="page-content hidden">
+                        <h2 class="text-3xl font-bold mb-2 text-gray-900">Sertifikasi Teknik Kimia</h2>
+                        <p class="text-gray-500 mb-8">Tingkatkan kredibilitas profesional Anda dengan sertifikasi terstandar nasional dan internasional.</p>
+                        
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-700">Sertifikasi Nasional (BNSP)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h4 class="text-xl font-bold mb-2">Operator Proses Industri Kimia</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Sertifikasi untuk individu yang bertanggung jawab mengoperasikan peralatan proses di pabrik kimia sesuai standar keselamatan dan efisiensi.</p>
+                                <a href="https://bnsp.go.id/skema/search?q=teknik+kimia" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-500 font-semibold">Lihat Skema di BNSP <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i></a>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h4 class="text-xl font-bold mb-2">Teknisi Laboratorium Kimia</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Kompetensi dalam melakukan analisis kimia, mengoperasikan instrumen lab, dan memastikan kualitas data sesuai prosedur yang ditetapkan.</p>
+                                <a href="https://bnsp.go.id/skema/search?q=laboratorium" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-500 font-semibold">Lihat Skema di BNSP <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i></a>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700">Sertifikasi Internasional</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h4 class="text-xl font-bold mb-2">Chartered Chemical Engineer (MIChemE)</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Gelar profesional yang diakui secara global dari IChemE (Institution of Chemical Engineers), menunjukkan tingkat kompetensi dan profesionalisme tertinggi.</p>
+                                <a href="https://www.icheme.org/membership/chartered-chemical-engineer/" target="_blank" class="inline-flex items-center text-green-600 hover:text-green-500 font-semibold">Kunjungi IChemE <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i></a>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h4 class="text-xl font-bold mb-2">Certified Functional Safety Expert (CFSE)</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Sertifikasi dari TÜV SÜD yang sangat dihargai dalam industri proses, berfokus pada keselamatan fungsional sistem untuk mencegah insiden.</p>
+                                <a href="https://www.tuvsud.com/en/services/training/chemical-oil-gas/functional-safety-training-and-certification-iec-61508-61511" target="_blank" class="inline-flex items-center text-green-600 hover:text-green-500 font-semibold">Kunjungi TÜV SÜD <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Apprenticeship Page -->
+                    <div id="page-apprenticeship" class="page-content hidden">
+                        <h2 class="text-3xl font-bold mb-2 text-gray-900">Marketplace Magang</h2>
+                        <p class="text-gray-500 mb-8">Temukan kesempatan magang terstruktur di perusahaan industri terkemuka. Pilih dan daftar, tanpa perlu CV, pasti diterima!</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Contoh Lowongan Magang -->
+                            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                                <img src="https://placehold.co/600x400/E5E7EB/1F2937?text=Pabrik" alt="Pabrik Petrokimia" class="w-full h-40 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-1">Process Engineer Intern</h3>
+                                    <p class="text-gray-500 mb-4">PT Petrokimia Jaya</p>
+                                    <div class="text-sm text-gray-600 space-y-2 mb-4">
+                                        <p class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>Gresik, Jawa Timur</p>
+                                        <p class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-2"></i>3 Bulan</p>
+                                    </div>
+                                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg">Daftar Magang</button>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                                <img src="https://placehold.co/600x400/E5E7EB/1F2937?text=Lab" alt="Laboratorium" class="w-full h-40 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-1">R&D Lab Assistant</h3>
+                                    <p class="text-gray-500 mb-4">PT Cipta Pangan Sehat</p>
+                                    <div class="text-sm text-gray-600 space-y-2 mb-4">
+                                        <p class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>Cikarang, Jawa Barat</p>
+                                        <p class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-2"></i>6 Bulan</p>
+                                    </div>
+                                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg">Daftar Magang</button>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                                <img src="https://placehold.co/600x400/E5E7EB/1F2937?text=Energi" alt="Pabrik Energi" class="w-full h-40 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-1">Safety Officer Trainee</h3>
+                                    <p class="text-gray-500 mb-4">PT Energi Terbarukan Nusantara</p>
+                                    <div class="text-sm text-gray-600 space-y-2 mb-4">
+                                        <p class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>Dumai, Riau</p>
+                                        <p class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-2"></i>3 Bulan</p>
+                                    </div>
+                                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg">Daftar Magang</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Networking Page -->
+                    <div id="page-networking" class="page-content hidden">
+                        <h2 class="text-3xl font-bold mb-2 text-gray-900">Jaringan & Karir</h2>
+                        <p class="text-gray-500 mb-8">Bangun profil profesional Anda dan terhubung dengan mitra industri kami.</p>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h3 class="text-xl font-bold mb-1">My Professional CV</h3>
+                                <p class="text-sm text-purple-600 mb-4 font-semibold">ATS-Friendly</p>
+                                <form class="space-y-4 text-sm">
+                                    <input type="text" placeholder="Nama Lengkap" class="w-full bg-gray-100 p-2 rounded-lg border border-gray-300">
+                                    <input type="text" placeholder="Jabatan/Gelar (e.g., Mahasiswa Teknik Kimia)" class="w-full bg-gray-100 p-2 rounded-lg border border-gray-300">
+                                    <textarea placeholder="Ringkasan Profesional" rows="3" class="w-full bg-gray-100 p-2 rounded-lg border border-gray-300"></textarea>
+                                    <input type="text" placeholder="Keahlian (pisahkan dengan koma)" class="w-full bg-gray-100 p-2 rounded-lg border border-gray-300">
+                                    <input type="text" placeholder="Sertifikasi yang Dimiliki" class="w-full bg-gray-100 p-2 rounded-lg border border-gray-300">
+                                    <button type="button" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-lg">Simpan Profil</button>
+                                </form>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h3 class="text-xl font-bold mb-4">Mitra Perusahaan</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center p-3 bg-gray-100 rounded-lg">
+                                        <img src="https://placehold.co/40x40/1F2937/FFFFFF?text=P" alt="Logo" class="rounded-full mr-3">
+                                        <span class="font-medium">PT Petrokimia Jaya</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-gray-100 rounded-lg">
+                                        <img src="https://placehold.co/40x40/1F2937/FFFFFF?text=C" alt="Logo" class="rounded-full mr-3">
+                                        <span class="font-medium">PT Cipta Pangan Sehat</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-gray-100 rounded-lg">
+                                        <img src="https://placehold.co/40x40/1F2937/FFFFFF?text=E" alt="Logo" class="rounded-full mr-3">
+                                        <span class="font-medium">PT Energi Terbarukan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital Simulation Page -->
+                    <div id="page-simulation" class="page-content hidden">
+                        <h2 class="text-3xl font-bold mb-2 text-gray-900">Laboratorium Virtual (Dry Lab)</h2>
+                        <p class="text-gray-500 mb-8">Asah keahlian Anda menggunakan perangkat lunak simulasi standar industri tanpa risiko.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h3 class="text-xl font-bold mb-2">Aspen HYSYS / Plus</h3>
+                                <p class="text-gray-600 text-sm">Standar emas untuk simulasi proses kimia, digunakan secara luas untuk desain pabrik, optimasi, dan analisis kinerja.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h3 class="text-xl font-bold mb-2">DWSIM</h3>
+                                <p class="text-gray-600 text-sm">Alternatif open-source yang kuat untuk simulasi proses, kompatibel dengan standar CAPE-OPEN.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h3 class="text-xl font-bold mb-2">ChemDraw</h3>
+                                <p class="text-gray-600 text-sm">Perangkat lunak untuk menggambar struktur molekul, reaksi kimia, dan aparatus laboratorium secara akurat.</p>
+                            </div>
+                             <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h3 class="text-xl font-bold mb-2">ANSYS Fluent</h3>
+                                <p class="text-gray-600 text-sm">Software terkemuka untuk simulasi Computational Fluid Dynamics (CFD), memodelkan aliran fluida, panas, dan reaksi.</p>
+                            </div>
+                             <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h3 class="text-xl font-bold mb-2">MATLAB</h3>
+                                <p class="text-gray-600 text-sm">Platform komputasi numerik untuk analisis data, pengembangan algoritma, dan pembuatan model matematika yang kompleks.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Laboratory Access Page -->
+                    <div id="page-laboratory" class="page-content hidden">
+                        <h2 class="text-3xl font-bold mb-2 text-gray-900">Akses Laboratorium Fisik (Wet Lab)</h2>
+                        <p class="text-gray-500 mb-8">Sewa akses ke laboratorium fisik di berbagai institusi dengan fasilitas lengkap.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white rounded-xl border border-gray-200 shadow-sm">
+                                <img src="https://placehold.co/600x400/F3F4F6/1F2937?text=Lab+Analitik" alt="Lab Analitik" class="w-full h-48 object-cover rounded-t-xl">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">Lab Instrumen Analitik</h3>
+                                    <p class="text-sm text-gray-500 mb-4">Institut Teknologi Bandung</p>
+                                    <div class="border-t border-b border-gray-200 py-3 my-3 text-sm space-y-2">
+                                        <p><span class="font-semibold text-gray-700">Kapasitas:</span> 5 - 10 orang</p>
+                                        <p><span class="font-semibold text-gray-700">Alat Utama:</span> HPLC, GC-MS, Spektrofotometer UV-Vis</p>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <p class="text-lg font-bold text-red-600">Rp 750.000<span class="text-sm font-normal text-gray-500">/jam</span></p>
+                                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">Lihat Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="bg-white rounded-xl border border-gray-200 shadow-sm">
+                                <img src="https://placehold.co/600x400/F3F4F6/1F2937?text=Lab+Proses" alt="Lab Proses" class="w-full h-48 object-cover rounded-t-xl">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">Lab Teknologi Proses</h3>
+                                    <p class="text-sm text-gray-500 mb-4">Universitas Gadjah Mada</p>
+                                    <div class="border-t border-b border-gray-200 py-3 my-3 text-sm space-y-2">
+                                        <p><span class="font-semibold text-gray-700">Kapasitas:</span> 8 - 15 orang</p>
+                                        <p><span class="font-semibold text-gray-700">Alat Utama:</span> Reaktor Mini, Kolom Distilasi Skala Lab</p>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <p class="text-lg font-bold text-red-600">Rp 900.000<span class="text-sm font-normal text-gray-500">/jam</span></p>
+                                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">Lihat Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="page-edutainment" class="page-content hidden">
+                        <h2 class="text-3xl font-bold mb-2 text-gray-900">Edutainment: AI Learning Hub</h2>
+                        <p class="text-gray-500 mb-8">Hasilkan kuis dan flashcard, lalu gunakan metode belajar teruji untuk menguasainya.</p>
+
+                        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                            <div class="max-w-2xl mx-auto">
+                                <div class="mb-6">
+                                    <label for="api-key-input" class="block text-gray-700 mb-2 font-medium">Gemini API Key</label>
+                                    <input type="password" id="api-key-input" placeholder="Masukkan API Key Gemini Anda di sini" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <p class="text-xs text-gray-500 mt-1">Kunci Anda disimpan sementara di browser dan tidak pernah dikirim ke server kami.</p>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="topic-input" class="block text-gray-700 mb-2 font-medium">Topik Pembelajaran</label>
+                                    <input type="text" id="topic-input" placeholder="Contoh: 'Dasar-dasar Javascript' atau 'Fotosintesis'" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div class="flex space-x-4">
+                                    <button id="generate-quiz-btn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="lightbulb" class="w-5 h-5 mr-2"></i> Buat Kuis
+                                    </button>
+                                    <button id="generate-flashcards-btn" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="layers" class="w-5 h-5 mr-2"></i> Buat Flashcard
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="ai-result-container" class="mt-8"></div>
+                        
+                        <div class="mt-12">
+                            <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">Peralatan & Metode Belajar Interaktif</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                
+                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col">
+                                    <h4 class="text-xl font-bold mb-3 text-blue-600">Pomodoro Technique</h4>
+                                    <p class="text-gray-500 text-sm mb-4">Fokus dengan interval. Pilih sesi, mulai, dan ikuti alurnya.</p>
+                                    <div class="flex-grow flex flex-col items-center justify-center bg-gray-100 rounded-lg p-4">
+                                        <p id="pomodoro-timer" class="text-5xl font-mono font-bold text-gray-800">25:00</p>
+                                        <p id="pomodoro-status" class="text-blue-600 font-semibold">Waktunya Fokus!</p>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 mt-4">
+                                        <button id="pomodoro-start-pause" class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg">Mulai</button>
+                                        <button id="pomodoro-reset" class="bg-gray-600 hover:bg-gray-700 text-white p-2 rounded-lg">Reset</button>
+                                        <select id="pomodoro-mode" class="bg-gray-200 text-gray-800 p-2 rounded-lg text-sm border border-gray-300">
+                                            <option value="25-5">25/5</option>
+                                            <option value="50-10">50/10</option>
+                                            <option value="40-10">40/10</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col">
+                                    <h4 class="text-xl font-bold mb-3 text-blue-600">Flowtime Technique</h4>
+                                    <p class="text-gray-500 text-sm mb-4">Belajar tanpa tekanan. Hentikan saat fokus hilang & catat waktunya.</p>
+                                    <div class="flex-grow flex flex-col items-center justify-center bg-gray-100 rounded-lg p-4">
+                                        <p id="flowtime-timer" class="text-5xl font-mono font-bold text-gray-800">00:00:00</p>
+                                        <p id="flowtime-status" class="text-gray-500">Siap untuk mulai?</p>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2 mt-4">
+                                        <button id="flowtime-start-stop" class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg col-span-2">Mulai Sesi</button>
+                                    </div>
+                                    <div id="flowtime-log" class="text-xs mt-3 text-gray-500 max-h-20 overflow-y-auto"></div>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col">
+                                    <h4 class="text-xl font-bold mb-3 text-blue-600">2-Minute Rule</h4>
+                                    <p class="text-gray-500 text-sm mb-4">Lawan penundaan dengan memulai tugas hanya selama 2 menit.</p>
+                                     <div class="flex-grow flex flex-col items-center justify-center bg-gray-100 rounded-lg p-4">
+                                        <p id="two-minute-timer" class="text-5xl font-mono font-bold text-gray-800">02:00</p>
+                                        <p id="two-minute-status" class="text-gray-500">Siap?</p>
+                                    </div>
+                                    <button id="two-minute-start" class="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-lg mt-4 w-full">Mulai 2 Menit</button>
+                                </div>
+                                
+                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                    <h4 class="text-xl font-bold mb-3 text-blue-600">Feynman Technique</h4>
+                                    <p class="text-gray-500 text-sm mb-3">Pahami topik secara mendalam dengan menyederhanakannya.</p>
+                                    <ol class="list-decimal list-inside text-gray-500 text-sm space-y-1 mb-4">
+                                        <li>Pilih & pelajari topik.</li>
+                                        <li>Jelaskan dengan sederhana.</li>
+                                        <li>Identifikasi celah pemahaman.</li>
+                                        <li>Sederhanakan & ulangi.</li>
+                                    </ol>
+                                    <button id="feynman-start-btn" class="w-full bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-lg">Coba Sekarang</button>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                    <h4 class="text-xl font-bold mb-3 text-blue-600">Blurting Method</h4>
+                                    <p class="text-gray-500 text-sm mb-3">Uji ingatan Anda dengan menulis semua yang Anda ingat tentang suatu topik.</p>
+                                     <ol class="list-decimal list-inside text-gray-500 text-sm space-y-1 mb-4">
+                                        <li>Pelajari materi.</li>
+                                        <li>Tulis semua yang diingat.</li>
+                                        <li>Periksa & koreksi.</li>
+                                        <li>Ulangi.</li>
+                                    </ol>
+                                    <button id="blurting-start-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white p-2 rounded-lg">Mulai Sesi Menulis</button>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                    <h4 class="text-xl font-bold mb-3 text-blue-600">Leitner System</h4>
+                                    <p class="text-gray-500 text-sm mb-3">Metode pengulangan berjenjang menggunakan flashcard untuk memori jangka panjang.</p>
+                                    <p class="text-gray-500 text-sm mb-4">Buat flashcard terlebih dahulu, lalu tombol untuk memulai latihan dengan metode ini akan muncul di bawahnya.</p>
+                                    <div class="text-center p-4 bg-gray-100 rounded-lg">
+                                        <i data-lucide="box" class="w-10 h-10 mx-auto text-gray-400"></i>
+                                        <p class="text-xs mt-2 text-gray-400">Menunggu set flashcard...</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="page-settings" class="page-content hidden">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-900">Pengaturan</h2>
+                        <div class="bg-white p-6 rounded-lg max-w-lg shadow-sm border border-gray-200">
+                            <h3 class="text-xl font-semibold mb-4">Informasi Akun</h3>
+                            <p class="mb-2"><span class="font-medium text-gray-500">Email:</span> <span id="settings-email"></span></p>
+                            <p><span class="font-medium text-gray-500">User ID:</span> <span id="settings-userid" class="text-xs text-gray-400"></span></p>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-container"></div>
+
+    <template id="loader-template">
+        <div class="flex flex-col items-center justify-center p-10 text-center">
+            <div class="loader mb-4"></div>
+            <p class="text-lg font-medium text-gray-600">AI sedang berpikir...</p>
+            <p class="text-gray-500">Mohon tunggu sebentar, konten sedang dibuat.</p>
+        </div>
+    </template>
+
+    <template id="quiz-template">
+        <div class="bg-white/80 p-6 rounded-xl border border-gray-200 shadow-md">
+            <h3 class="text-2xl font-bold mb-6 text-center text-gray-900">Kuis: <span id="quiz-topic"></span></h3>
+            <div id="quiz-content"></div>
+            <div id="quiz-navigation" class="flex justify-between items-center mt-6">
+                <button id="prev-question-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg disabled:opacity-50" disabled>Sebelumnya</button>
+                <span id="question-counter" class="text-gray-500"></span>
+                <button id="next-question-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Selanjutnya</button>
+            </div>
+            <div id="quiz-result" class="hidden text-center mt-6">
+                <h4 class="text-2xl font-bold mb-2 text-gray-900">Hasil Kuis</h4>
+                <p class="text-lg">Skor Anda: <span id="quiz-score" class="font-bold text-green-600"></span></p>
+                <button id="retake-quiz-btn" class="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg">Ulangi Kuis</button>
+            </div>
+        </div>
+    </template>
+
+    <template id="flashcards-template">
+        <div class="bg-white/80 p-6 rounded-xl border border-gray-200 shadow-md">
+            <h3 class="text-2xl font-bold mb-6 text-center text-gray-900">Flashcard: <span id="flashcards-topic"></span></h3>
+            <div class="w-full max-w-lg mx-auto h-64">
+                <div id="flashcard-container" class="flip-card w-full h-full">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front bg-blue-500">
+                            <p id="flashcard-front-content" class="text-2xl font-bold"></p>
+                        </div>
+                        <div class="flip-card-back bg-green-500">
+                            <p id="flashcard-back-content" class="text-lg"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center items-center mt-6 space-x-4">
+                <button id="prev-flashcard-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold p-3 rounded-full disabled:opacity-50"><i data-lucide="arrow-left"></i></button>
+                <span id="flashcard-counter" class="text-gray-500"></span>
+                <button id="next-flashcard-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold p-3 rounded-full"><i data-lucide="arrow-right"></i></button>
+            </div>
+             <p class="text-center text-gray-500 text-sm mt-4">Klik pada kartu untuk membaliknya.</p>
+             <div class="text-center mt-6">
+                <button id="start-leitner-btn" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center mx-auto">
+                    <i data-lucide="box" class="w-5 h-5 mr-2"></i> Latih dengan Sistem Leitner
+                </button>
+             </div>
+        </div>
+    </template>
+
+    <template id="feynman-modal-template">
+        <div class="modal-backdrop">
+            <div class="bg-white w-full max-w-2xl rounded-xl border border-gray-200 p-6 flex flex-col max-h-[90vh]">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold text-purple-600">Feynman Technique</h3>
+                    <button class="close-modal-btn text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+                </div>
+                <div class="flex-grow overflow-y-auto pr-2 space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">1. Topik yang Dipelajari</label>
+                        <input type="text" id="feynman-topic" placeholder="Masukkan topik Anda" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-900">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">2. Jelaskan dengan Bahasa Sederhana</label>
+                        <textarea id="feynman-explanation" rows="5" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-900" placeholder="Tulis penjelasan seolah-olah Anda sedang mengajari seorang anak kecil..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">3. Identifikasi Celah Pemahaman Anda</label>
+                        <textarea id="feynman-gaps" rows="3" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-900" placeholder="Bagian mana yang sulit dijelaskan? Apa yang Anda lupakan? Tulis di sini."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2 font-medium">4. Sederhanakan dan Ulangi</label>
+                        <textarea id="feynman-simplified" rows="5" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-900" placeholder="Setelah mempelajari kembali celah Anda, tulis ulang penjelasan yang lebih baik dan sederhana di sini."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="blurting-modal-template">
+        <div class="modal-backdrop">
+            <div class="bg-white w-full max-w-2xl rounded-xl border border-gray-200 p-6 flex flex-col max-h-[90vh]">
+                 <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold text-indigo-600">Blurting Method</h3>
+                    <button class="close-modal-btn text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+                </div>
+                <div class="flex-grow flex flex-col">
+                    <input type="text" placeholder="Masukkan topik yang baru Anda pelajari..." class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-900 mb-4">
+                    <textarea class="w-full flex-grow bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-900" placeholder="Tulis semua yang Anda ingat tentang topik ini tanpa melihat catatan..."></textarea>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="leitner-system-template">
+        <div class="bg-white/80 p-6 rounded-xl border border-gray-200 shadow-md">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Sistem Leitner: <span id="leitner-topic"></span></h3>
+                <button id="close-leitner-btn" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+            </div>
+            
+            <div id="leitner-boxes" class="grid grid-cols-5 gap-2 md:gap-4 text-center mb-6">
+                <!-- Kotak akan di-generate oleh JS -->
+            </div>
+
+            <div id="leitner-practice-area" class="hidden">
+                <div class="w-full max-w-lg mx-auto h-64 mb-4">
+                    <div id="leitner-flashcard" class="flip-card w-full h-full">
+                        <div class="flip-card-inner rounded-lg">
+                            <div class="flip-card-front bg-teal-500">
+                                <p id="leitner-front-content" class="text-2xl font-bold"></p>
+                            </div>
+                            <div class="flip-card-back bg-gray-300 text-gray-800">
+                                <p id="leitner-back-content" class="text-lg"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="leitner-controls" class="hidden flex justify-center items-center space-x-4">
+                    <button id="leitner-wrong-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg">Salah</button>
+                    <button id="leitner-correct-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">Benar</button>
+                </div>
+            </div>
+            <div id="leitner-summary" class="text-center">
+                <p id="leitner-summary-text" class="text-lg">Pilih kotak untuk memulai latihan.</p>
+                <button id="leitner-reset-btn" class="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs py-1 px-3 rounded-lg">Reset Progress</button>
+            </div>
+        </div>
+    </template>
+
+    <template id="screening-modal-template">
+        <div class="modal-backdrop">
+            <div class="bg-white w-full max-w-3xl rounded-xl border border-gray-200 p-6 flex flex-col max-h-[90vh]">
+                <div id="screening-content">
+                    <!-- Screening questions will be injected here -->
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // This script is now a standard script, not a module.
+        // All Firebase code has been removed.
+        document.addEventListener('DOMContentLoaded', () => {
+            const appContainer = document.getElementById('app-container');
+            const landingPage = document.getElementById('landing-page');
+            const authPage = document.getElementById('auth-page');
+            const mainApp = document.getElementById('main-app');
+            const loginNavBtn = document.getElementById('login-nav-btn');
+            const getStartedBtn = document.getElementById('get-started-btn');
+            const backToLandingBtn = document.getElementById('back-to-landing-btn');
+            const authTitle = document.getElementById('auth-title');
+            const authError = document.getElementById('auth-error');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const authSwitchText = document.getElementById('auth-switch-text');
+            const authSwitchBtn = document.getElementById('auth-switch-btn');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageContents = document.querySelectorAll('.page-content');
+            const userEmailDisplay = document.getElementById('user-email-display');
+            const userInitial = document.getElementById('user-initial');
+            const logoutBtn = document.getElementById('logout-btn');
+            const settingsEmail = document.getElementById('settings-email');
+            const settingsUserid = document.getElementById('settings-userid');
+            const apiKeyInput = document.getElementById('api-key-input');
+            const topicInput = document.getElementById('topic-input');
+            const generateQuizBtn = document.getElementById('generate-quiz-btn');
+            const generateFlashcardsBtn = document.getElementById('generate-flashcards-btn');
+            const aiResultContainer = document.getElementById('ai-result-container');
+            const modalContainer = document.getElementById('modal-container');
+
+            let currentUser = null;
+            let currentQuizData = null;
+            let currentQuestionIndex = 0;
+            let userAnswers = [];
+            let currentFlashcardsData = null;
+            let currentFlashcardIndex = 0;
+            let currentTopic = "";
+
+            // Timer States
+            let pomodoroInterval, flowtimeInterval, twoMinuteInterval;
+            let pomodoroState = { timer: null, onBreak: false, running: false, mode: '25-5', seconds: 25 * 60 };
+            let flowtimeState = { timer: null, running: false, seconds: 0 };
+            let twoMinuteState = { timer: null, running: false, seconds: 120 };
+
+            // Leitner State
+            let leitnerState = { topic: '', boxes: [[], [], [], [], []], cards: [], currentCardIndex: -1, currentBox: -1 };
+            
+            // Screening State
+            let screeningState = { scores: { recall: 0, reasoning: 0, technical: 0 }, completed: false };
+            let screeningCharts = {};
+
+            // --- Page Navigation ---
+            const showPage = (pageId) => {
+                landingPage.classList.add('hidden');
+                authPage.classList.add('hidden');
+                mainApp.classList.add('hidden');
+                document.getElementById(pageId).classList.remove('hidden');
+            };
+
+            // --- Fake Authentication Logic ---
+            const showAppForUser = (email) => {
+                currentUser = {
+                    email: email,
+                    uid: 'static-user-' + email.replace(/[^a-zA-Z0-9]/g, '') // Create a simple static ID
+                };
+                
+                userEmailDisplay.textContent = currentUser.email;
+                userInitial.textContent = currentUser.email ? currentUser.email.charAt(0).toUpperCase() : 'U';
+                settingsEmail.textContent = currentUser.email;
+                settingsUserid.textContent = currentUser.uid;
+                
+                loadScreeningState(); // Load state from localStorage
+                showPage('main-app');
+            };
+
+            const showAuthForm = (form) => {
+                if (form === 'login') {
+                    loginForm.classList.remove('hidden');
+                    signupForm.classList.add('hidden');
+                    authTitle.textContent = 'Selamat Datang Kembali!';
+                    authSwitchText.textContent = 'Belum punya akun?';
+                    authSwitchBtn.textContent = 'Daftar Sekarang';
+                } else {
+                    loginForm.classList.add('hidden');
+                    signupForm.classList.remove('hidden');
+                    authTitle.textContent = 'Buat Akun Baru';
+                    authSwitchText.textContent = 'Sudah punya akun?';
+                    authSwitchBtn.textContent = 'Masuk';
+                }
+                authError.classList.add('hidden');
+            };
+
+            loginNavBtn.addEventListener('click', () => showPage('auth-page'));
+            getStartedBtn.addEventListener('click', () => {
+                showPage('auth-page');
+                showAuthForm('signup');
+            });
+            backToLandingBtn.addEventListener('click', () => showPage('landing-page'));
+
+            authSwitchBtn.addEventListener('click', () => {
+                if (loginForm.classList.contains('hidden')) {
+                    showAuthForm('login');
+                } else {
+                    showAuthForm('signup');
+                }
+            });
+
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+                if (password !== confirmPassword) {
+                    authError.textContent = 'Password dan konfirmasi password tidak cocok.';
+                    authError.classList.remove('hidden');
+                    return;
+                }
+                
+                if (!email) {
+                    authError.textContent = 'Email tidak boleh kosong.';
+                    authError.classList.remove('hidden');
+                    return;
+                }
+
+                // Fake signup successful, log the user in
+                showAppForUser(email);
+            });
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                
+                if (!email) {
+                    authError.textContent = 'Email tidak boleh kosong.';
+                    authError.classList.remove('hidden');
+                    return;
+                }
+                // Fake login successful, anything works
+                showAppForUser(email);
+            });
+
+            logoutBtn.addEventListener('click', () => {
+                currentUser = null;
+                showPage('landing-page');
+            });
+
+            // --- Main App Navigation ---
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = link.dataset.page;
+                    pageContents.forEach(content => content.classList.add('hidden'));
+                    document.getElementById(`page-${page}`).classList.remove('hidden');
+                    navLinks.forEach(nav => {
+                        nav.classList.remove('bg-blue-100', 'text-blue-700', 'font-semibold');
+                        nav.classList.add('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900');
+                    });
+                    link.classList.add('bg-blue-100', 'text-blue-700', 'font-semibold');
+                    link.classList.remove('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900');
+                });
+            });
+            
+            // --- Gemini API Call ---
+            async function callGeminiApi(prompt, apiKey, schema) {
+                const model = "gemini-2.5-flash-preview-05-20";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: prompt }] }],
+                    generationConfig: { responseMimeType: "application/json", responseSchema: schema },
+                };
+                let response, result, retries = 3, delay = 1000;
+                for (let i = 0; i < retries; i++) {
+                    try {
+                        response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                        if (response.ok) {
+                            result = await response.json();
+                            if (result.candidates?.[0]?.content?.parts?.[0]) {
+                                return JSON.parse(result.candidates[0].content.parts[0].text);
+                            }
+                        } else if (response.status === 429) {
+                            console.warn(`API rate limit hit. Retrying in ${delay / 1000}s...`);
+                            await new Promise(res => setTimeout(res, delay));
+                            delay *= 2;
+                        } else {
+                            result = await response.json();
+                            throw new Error(result.error?.message || `HTTP error! status: ${response.status}`);
+                        }
+                    } catch (error) {
+                        console.error("API call error:", error);
+                        if (i === retries - 1) throw error;
+                    }
+                }
+                throw new Error("API call failed after multiple retries.");
+            }
+            
+            function showLoader() {
+                const loaderTemplate = document.getElementById('loader-template');
+                const loader = loaderTemplate.content.cloneNode(true);
+                aiResultContainer.innerHTML = '';
+                aiResultContainer.appendChild(loader);
+            }
+
+            function displayError(message) {
+                aiResultContainer.innerHTML = `<div class="bg-red-100 text-red-700 p-4 rounded-lg text-center">${message}</div>`;
+            }
+            
+            generateQuizBtn.addEventListener('click', async () => {
+                const topic = topicInput.value.trim();
+                const apiKey = apiKeyInput.value.trim();
+                if (!topic || !apiKey) { alert("Harap masukkan Topik dan API Key Anda."); return; }
+                showLoader();
+                const quizSchema = { type: "OBJECT", properties: { questions: { type: "ARRAY", items: { type: "OBJECT", properties: { questionText: { type: "STRING" }, options: { type: "ARRAY", items: { type: "STRING" } }, correctAnswerIndex: { type: "INTEGER" }, explanation: { type: "STRING" } }, required: ["questionText", "options", "correctAnswerIndex", "explanation"] } } }, required: ["questions"] };
+                const prompt = `Buat kuis pilihan ganda dengan 5 pertanyaan tentang topik "${topic}". Untuk setiap pertanyaan, berikan 4 pilihan jawaban. Pastikan untuk menyertakan indeks jawaban yang benar (0-3) dan penjelasan singkat mengapa jawaban itu benar. Format respons Anda harus sesuai dengan skema JSON yang diberikan.`;
+                try {
+                    const data = await callGeminiApi(prompt, apiKey, quizSchema);
+                    if (data?.questions?.length > 0) { currentQuizData = data.questions; startQuiz(topic); } 
+                    else { throw new Error("Struktur data kuis dari API tidak valid."); }
+                } catch (error) {
+                    console.error("Gagal membuat kuis:", error);
+                    displayError(`Gagal membuat kuis. ${error.message}. Pastikan API Key Anda benar dan memiliki izin.`);
+                }
+            });
+
+            function startQuiz(topic) {
+                currentQuestionIndex = 0;
+                userAnswers = new Array(currentQuizData.length).fill(null);
+                const quiz = document.getElementById('quiz-template').content.cloneNode(true);
+                aiResultContainer.innerHTML = '';
+                aiResultContainer.appendChild(quiz);
+                document.getElementById('quiz-topic').textContent = topic;
+                displayQuestion();
+                document.getElementById('next-question-btn').addEventListener('click', nextQuestion);
+                document.getElementById('prev-question-btn').addEventListener('click', prevQuestion);
+                document.getElementById('retake-quiz-btn').addEventListener('click', () => startQuiz(topic));
+            }
+
+            function displayQuestion() {
+                const questionData = currentQuizData[currentQuestionIndex];
+                document.getElementById('quiz-content').innerHTML = `<div class="mb-4"><p class="text-lg font-medium">${currentQuestionIndex + 1}. ${questionData.questionText}</p></div><div class="space-y-3">${questionData.options.map((option, index) => `<label class="flex items-center p-4 rounded-lg border border-gray-300 hover:bg-gray-100 cursor-pointer transition-colors"><input type="radio" name="quiz-option" value="${index}" class="mr-4" ${userAnswers[currentQuestionIndex] === index ? 'checked' : ''}><span>${option}</span></label>`).join('')}</div>`;
+                document.querySelectorAll('input[name="quiz-option"]').forEach(radio => {
+                    radio.addEventListener('change', (e) => { userAnswers[currentQuestionIndex] = parseInt(e.target.value); });
+                });
+                updateNavigation();
+            }
+
+            function updateNavigation() {
+                document.getElementById('question-counter').textContent = `Pertanyaan ${currentQuestionIndex + 1} dari ${currentQuizData.length}`;
+                document.getElementById('prev-question-btn').disabled = currentQuestionIndex === 0;
+                const nextBtn = document.getElementById('next-question-btn');
+                if (currentQuestionIndex === currentQuizData.length - 1) {
+                    nextBtn.textContent = 'Lihat Hasil';
+                    nextBtn.classList.replace('bg-blue-600', 'bg-green-600');
+                    nextBtn.classList.replace('hover:bg-blue-700', 'hover:bg-green-700');
+                } else {
+                    nextBtn.textContent = 'Selanjutnya';
+                    nextBtn.classList.replace('bg-green-600', 'bg-blue-600');
+                    nextBtn.classList.replace('hover:bg-green-700', 'hover:bg-blue-700');
+                }
+            }
+
+            function nextQuestion() {
+                if (currentQuestionIndex < currentQuizData.length - 1) { currentQuestionIndex++; displayQuestion(); } 
+                else { showResults(); }
+            }
+
+            function prevQuestion() {
+                if (currentQuestionIndex > 0) { currentQuestionIndex--; displayQuestion(); }
+            }
+
+            function showResults() {
+                let score = 0;
+                userAnswers.forEach((answer, index) => { if (answer === currentQuizData[index].correctAnswerIndex) score++; });
+                const quizContent = document.getElementById('quiz-content');
+                quizContent.innerHTML = '';
+                currentQuizData.forEach((q, index) => {
+                    const resultBlock = document.createElement('div');
+                    resultBlock.className = 'mb-6 p-4 rounded-lg border';
+                    const isCorrect = userAnswers[index] === q.correctAnswerIndex;
+                    resultBlock.classList.add(isCorrect ? 'border-green-200' : 'border-red-200', isCorrect ? 'bg-green-50' : 'bg-red-50');
+                    let optionsHtml = q.options.map((opt, i) => {
+                        let style = '';
+                        if (i === q.correctAnswerIndex) style = 'text-green-700 font-bold';
+                        if (i === userAnswers[index] && !isCorrect) style = 'text-red-700 line-through';
+                        return `<li class="${style}">${opt}</li>`;
+                    }).join('');
+                    resultBlock.innerHTML = `<p class="font-semibold mb-2">${index + 1}. ${q.questionText}</p><ul class="list-disc list-inside mb-2">${optionsHtml}</ul><p class="text-sm text-gray-600 p-3 rounded-md bg-gray-100"><strong>Penjelasan:</strong> ${q.explanation}</p>`;
+                    quizContent.appendChild(resultBlock);
+                });
+                document.getElementById('quiz-navigation').classList.add('hidden');
+                document.getElementById('quiz-result').classList.remove('hidden');
+                document.getElementById('quiz-score').textContent = `${score} / ${currentQuizData.length}`;
+            }
+            
+            generateFlashcardsBtn.addEventListener('click', async () => {
+                currentTopic = topicInput.value.trim();
+                const apiKey = apiKeyInput.value.trim();
+                if (!currentTopic || !apiKey) { alert("Harap masukkan Topik dan API Key Anda."); return; }
+                showLoader();
+                const flashcardSchema = { type: "OBJECT", properties: { flashcards: { type: "ARRAY", items: { type: "OBJECT", properties: { term: { type: "STRING" }, definition: { type: "STRING" } }, required: ["term", "definition"] } } }, required: ["flashcards"] };
+                const prompt = `Buat satu set berisi 10 flashcard tentang topik "${currentTopic}". Setiap flashcard harus memiliki 'term' (istilah) dan 'definition' (definisi singkat dan jelas). Format respons Anda harus sesuai dengan skema JSON yang diberikan.`;
+                try {
+                    const data = await callGeminiApi(prompt, apiKey, flashcardSchema);
+                    if (data?.flashcards?.length > 0) { currentFlashcardsData = data.flashcards; startFlashcards(currentTopic); } 
+                    else { throw new Error("Struktur data flashcard dari API tidak valid."); }
+                } catch (error) {
+                    console.error("Gagal membuat flashcard:", error);
+                    displayError(`Gagal membuat flashcard. ${error.message}. Pastikan API Key Anda benar dan memiliki izin.`);
+                }
+            });
+            
+            function startFlashcards(topic) {
+                currentFlashcardIndex = 0;
+                const flashcards = document.getElementById('flashcards-template').content.cloneNode(true);
+                aiResultContainer.innerHTML = '';
+                aiResultContainer.appendChild(flashcards);
+                document.getElementById('flashcards-topic').textContent = topic;
+                displayFlashcard();
+                document.getElementById('flashcard-container').addEventListener('click', () => document.getElementById('flashcard-container').classList.toggle('flipped'));
+                document.getElementById('next-flashcard-btn').addEventListener('click', nextFlashcard);
+                document.getElementById('prev-flashcard-btn').addEventListener('click', prevFlashcard);
+                document.getElementById('start-leitner-btn').addEventListener('click', startLeitnerSystem);
+            }
+
+            function displayFlashcard() {
+                const cardData = currentFlashcardsData[currentFlashcardIndex];
+                const container = document.getElementById('flashcard-container');
+                if (container.classList.contains('flipped')) {
+                    container.classList.remove('flipped');
+                    setTimeout(() => {
+                        document.getElementById('flashcard-front-content').textContent = cardData.term;
+                        document.getElementById('flashcard-back-content').textContent = cardData.definition;
+                    }, 300);
+                } else {
+                    document.getElementById('flashcard-front-content').textContent = cardData.term;
+                    document.getElementById('flashcard-back-content').textContent = cardData.definition;
+                }
+                document.getElementById('flashcard-counter').textContent = `${currentFlashcardIndex + 1} / ${currentFlashcardsData.length}`;
+                document.getElementById('prev-flashcard-btn').disabled = currentFlashcardIndex === 0;
+                document.getElementById('next-flashcard-btn').disabled = currentFlashcardIndex === currentFlashcardsData.length - 1;
+            }
+
+            function nextFlashcard() { if (currentFlashcardIndex < currentFlashcardsData.length - 1) { currentFlashcardIndex++; displayFlashcard(); } }
+            function prevFlashcard() { if (currentFlashcardIndex > 0) { currentFlashcardIndex--; displayFlashcard(); } }
+
+            // --- Modal Logic ---
+            function openModal(templateId, closeCallback) {
+                const template = document.getElementById(templateId);
+                modalContainer.innerHTML = '';
+                modalContainer.appendChild(template.content.cloneNode(true));
+                const closeBtn = modalContainer.querySelector('.close-modal-btn');
+                if(closeBtn) {
+                    closeBtn.addEventListener('click', closeCallback || closeModal);
+                }
+            }
+            function closeModal() { modalContainer.innerHTML = ''; }
+            document.getElementById('feynman-start-btn').addEventListener('click', () => openModal('feynman-modal-template'));
+            document.getElementById('blurting-start-btn').addEventListener('click', () => openModal('blurting-modal-template'));
+
+            // --- Timer Formatting ---
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+                const secs = (seconds % 60).toString().padStart(2, '0');
+                return `${mins}:${secs}`;
+            }
+            function formatStopwatch(seconds) {
+                const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+                const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+                const s = (seconds % 60).toString().padStart(2, '0');
+                return `${h}:${m}:${s}`;
+            }
+
+            // --- Pomodoro Logic ---
+            const pomodoroTimerEl = document.getElementById('pomodoro-timer');
+            const pomodoroStatusEl = document.getElementById('pomodoro-status');
+            const pomodoroStartPauseBtn = document.getElementById('pomodoro-start-pause');
+
+            function updatePomodoroDisplay() {
+                pomodoroTimerEl.textContent = formatTime(pomodoroState.seconds);
+            }
+
+            function handlePomodoro() {
+                pomodoroState.seconds--;
+                updatePomodoroDisplay();
+                if (pomodoroState.seconds <= 0) {
+                    pomodoroState.onBreak = !pomodoroState.onBreak;
+                    const [work, rest] = pomodoroState.mode.split('-').map(Number);
+                    pomodoroState.seconds = pomodoroState.onBreak ? rest * 60 : work * 60;
+                    pomodoroStatusEl.textContent = pomodoroState.onBreak ? "Waktunya Istirahat!" : "Waktunya Fokus!";
+                    pomodoroStatusEl.classList.toggle('text-green-600', pomodoroState.onBreak);
+                    pomodoroStatusEl.classList.toggle('text-blue-600', !pomodoroState.onBreak);
+                }
+            }
+
+            document.getElementById('pomodoro-start-pause').addEventListener('click', () => {
+                pomodoroState.running = !pomodoroState.running;
+                if (pomodoroState.running) {
+                    pomodoroState.timer = setInterval(handlePomodoro, 1000);
+                    pomodoroStartPauseBtn.textContent = 'Jeda';
+                    pomodoroStartPauseBtn.classList.replace('bg-blue-600', 'bg-yellow-500');
+                } else {
+                    clearInterval(pomodoroState.timer);
+                    pomodoroStartPauseBtn.textContent = 'Lanjut';
+                    pomodoroStartPauseBtn.classList.replace('bg-yellow-500', 'bg-blue-600');
+                }
+            });
+
+            function resetPomodoro() {
+                clearInterval(pomodoroState.timer);
+                pomodoroState.running = false;
+                pomodoroState.onBreak = false;
+                const [work] = pomodoroState.mode.split('-').map(Number);
+                pomodoroState.seconds = work * 60;
+                updatePomodoroDisplay();
+                pomodoroStatusEl.textContent = "Waktunya Fokus!";
+                pomodoroStatusEl.className = 'text-blue-600 font-semibold';
+                pomodoroStartPauseBtn.textContent = 'Mulai';
+                pomodoroStartPauseBtn.className = 'bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg';
+            }
+
+            document.getElementById('pomodoro-reset').addEventListener('click', resetPomodoro);
+            document.getElementById('pomodoro-mode').addEventListener('change', (e) => {
+                pomodoroState.mode = e.target.value;
+                resetPomodoro();
+            });
+
+            // --- Flowtime Logic ---
+            const flowtimeTimerEl = document.getElementById('flowtime-timer');
+            const flowtimeStatusEl = document.getElementById('flowtime-status');
+            const flowtimeStartStopBtn = document.getElementById('flowtime-start-stop');
+            const flowtimeLogEl = document.getElementById('flowtime-log');
+
+            function handleFlowtime() {
+                flowtimeState.seconds++;
+                flowtimeTimerEl.textContent = formatStopwatch(flowtimeState.seconds);
+            }
+
+            flowtimeStartStopBtn.addEventListener('click', () => {
+                flowtimeState.running = !flowtimeState.running;
+                if (flowtimeState.running) {
+                    flowtimeState.timer = setInterval(handleFlowtime, 1000);
+                    flowtimeStartStopBtn.textContent = 'Fokus Hilang';
+                    flowtimeStartStopBtn.classList.replace('bg-green-600', 'bg-red-600');
+                    flowtimeStatusEl.textContent = 'Sesi sedang berjalan...';
+                } else {
+                    clearInterval(flowtimeState.timer);
+                    const focusMinutes = Math.floor(flowtimeState.seconds / 60);
+                    let breakMinutes = 0;
+                    if (focusMinutes <= 25) breakMinutes = 5;
+                    else if (focusMinutes <= 50) breakMinutes = 8;
+                    else if (focusMinutes <= 90) breakMinutes = 15;
+                    else breakMinutes = 20;
+                    
+                    flowtimeStatusEl.textContent = `Istirahat disarankan: ${breakMinutes} menit`;
+                    const logEntry = document.createElement('p');
+                    logEntry.textContent = `Sesi: ${focusMinutes} menit, Istirahat: ${breakMinutes} menit`;
+                    flowtimeLogEl.prepend(logEntry);
+
+                    flowtimeState.seconds = 0;
+                    flowtimeTimerEl.textContent = formatStopwatch(0);
+                    flowtimeStartStopBtn.textContent = 'Mulai Sesi Baru';
+                    flowtimeStartStopBtn.classList.replace('bg-red-600', 'bg-green-600');
+                }
+            });
+
+            // --- 2-Minute Rule Logic ---
+            const twoMinTimerEl = document.getElementById('two-minute-timer');
+            const twoMinStatusEl = document.getElementById('two-minute-status');
+            const twoMinStartBtn = document.getElementById('two-minute-start');
+
+            function handleTwoMinute() {
+                twoMinuteState.seconds--;
+                twoMinTimerEl.textContent = formatTime(twoMinuteState.seconds);
+                if (twoMinuteState.seconds <= 0) {
+                    clearInterval(twoMinuteState.timer);
+                    twoMinuteState.running = false;
+                    twoMinStatusEl.textContent = 'Waktu Habis!';
+                    twoMinStartBtn.disabled = false;
+                    twoMinStartBtn.textContent = 'Mulai Lagi';
+                }
+            }
+
+            twoMinStartBtn.addEventListener('click', () => {
+                if (twoMinuteState.running) return;
+                twoMinuteState.running = true;
+                twoMinuteState.seconds = 120;
+                twoMinTimerEl.textContent = formatTime(120);
+                twoMinStatusEl.textContent = 'Ayo mulai!';
+                twoMinStartBtn.disabled = true;
+                twoMinuteState.timer = setInterval(handleTwoMinute, 1000);
+            });
+
+            // --- Leitner System Logic ---
+            function startLeitnerSystem() {
+                const leitnerTemplate = document.getElementById('leitner-system-template').content.cloneNode(true);
+                aiResultContainer.innerHTML = '';
+                aiResultContainer.appendChild(leitnerTemplate);
+                
+                leitnerState.topic = currentTopic;
+                leitnerState.cards = [...currentFlashcardsData];
+                loadLeitnerState();
+
+                document.getElementById('leitner-topic').textContent = leitnerState.topic;
+                document.getElementById('close-leitner-btn').addEventListener('click', () => {
+                    startFlashcards(currentTopic); // Go back to flashcard view
+                });
+                document.getElementById('leitner-reset-btn').addEventListener('click', () => {
+                    if (confirm('Anda yakin ingin mereset progress Leitner untuk topik ini?')) {
+                        resetLeitnerState();
+                        renderLeitnerBoxes();
+                    }
+                });
+
+                renderLeitnerBoxes();
+            }
+
+            function saveLeitnerState() {
+                localStorage.setItem(`leitner_${leitnerState.topic}`, JSON.stringify(leitnerState.boxes));
+            }
+
+            function loadLeitnerState() {
+                const savedState = localStorage.getItem(`leitner_${leitnerState.topic}`);
+                if (savedState) {
+                    leitnerState.boxes = JSON.parse(savedState);
+                } else {
+                    leitnerState.boxes = [[...Array(leitnerState.cards.length).keys()], [], [], [], []];
+                    saveLeitnerState();
+                }
+            }
+
+            function resetLeitnerState() {
+                leitnerState.boxes = [[...Array(leitnerState.cards.length).keys()], [], [], [], []];
+                saveLeitnerState();
+            }
+
+            function renderLeitnerBoxes() {
+                const container = document.getElementById('leitner-boxes');
+                container.innerHTML = '';
+                const boxLabels = ["Setiap Hari", "Selasa & Kamis", "Mingguan", "2 Minggu", "Selesai"];
+                leitnerState.boxes.forEach((box, index) => {
+                    const boxEl = document.createElement('div');
+                    boxEl.className = 'p-2 md:p-4 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 border border-gray-200';
+                    boxEl.innerHTML = `
+                        <p class="font-bold text-lg text-gray-800">${box.length}</p>
+                        <p class="text-xs text-gray-500">Kotak ${index + 1}</p>
+                        <p class="text-xs text-teal-600 mt-1 hidden md:block">${boxLabels[index]}</p>
+                    `;
+                    if (box.length > 0) {
+                        boxEl.addEventListener('click', () => startLeitnerPractice(index));
+                    } else {
+                        boxEl.classList.add('opacity-50', 'cursor-not-allowed');
+                    }
+                    container.appendChild(boxEl);
+                });
+            }
+
+            function startLeitnerPractice(boxIndex) {
+                leitnerState.currentBox = boxIndex;
+                leitnerState.currentCardIndex = 0;
+                document.getElementById('leitner-practice-area').classList.remove('hidden');
+                document.getElementById('leitner-summary').classList.add('hidden');
+                displayLeitnerCard();
+            }
+
+            function displayLeitnerCard() {
+                const cardIndicesInBox = leitnerState.boxes[leitnerState.currentBox];
+                if (leitnerState.currentCardIndex >= cardIndicesInBox.length) {
+                    endLeitnerPractice();
+                    return;
+                }
+
+                const cardIndex = cardIndicesInBox[leitnerState.currentCardIndex];
+                const cardData = leitnerState.cards[cardIndex];
+                const cardContainer = document.getElementById('leitner-flashcard');
+                
+                cardContainer.classList.remove('flipped');
+                document.getElementById('leitner-front-content').textContent = cardData.term;
+                document.getElementById('leitner-back-content').textContent = cardData.definition;
+                document.getElementById('leitner-controls').classList.add('hidden');
+
+                cardContainer.onclick = () => {
+                    cardContainer.classList.add('flipped');
+                    document.getElementById('leitner-controls').classList.remove('hidden');
+                    cardContainer.onclick = null; // Prevent re-flipping
+                };
+
+                document.getElementById('leitner-correct-btn').onclick = () => handleLeitnerAnswer(true);
+                document.getElementById('leitner-wrong-btn').onclick = () => handleLeitnerAnswer(false);
+            }
+
+            function handleLeitnerAnswer(isCorrect) {
+                const cardIndicesInBox = leitnerState.boxes[leitnerState.currentBox];
+                const cardIndex = cardIndicesInBox.splice(leitnerState.currentCardIndex, 1)[0];
+
+                if (isCorrect) {
+                    const nextBox = Math.min(leitnerState.currentBox + 1, 4);
+                    leitnerState.boxes[nextBox].push(cardIndex);
+                } else {
+                    leitnerState.boxes[0].push(cardIndex);
+                }
+                
+                saveLeitnerState();
+                displayLeitnerCard();
+            }
+
+            function endLeitnerPractice() {
+                document.getElementById('leitner-practice-area').classList.add('hidden');
+                document.getElementById('leitner-summary').classList.remove('hidden');
+                document.getElementById('leitner-summary-text').textContent = `Sesi latihan untuk Kotak ${leitnerState.currentBox + 1} selesai!`;
+                renderLeitnerBoxes();
+            }
+
+            // --- Screening and Dashboard Logic (using localStorage) ---
+            const screeningQuestions = {
+                recall: [
+                    { q: "Objek apa yang berada di pojok kiri atas?", o: ["Pompa Sentrifugal", "Reaktor", "Simbol Segitiga", "Tidak ada apa-apa"], a: 0 },
+                    { q: "Apa warna simbol geometris yang ditampilkan?", o: ["Biru", "Hijau", "Merah", "Kuning"], a: 2 },
+                    { q: "Sebutkan urutan angka yang benar dari yang ditampilkan.", o: ["8-1-9-3", "8-3-9-1", "1-9-3-8", "3-8-1-9"], a: 1 },
+                    { q: "Berapa hasil penjumlahan angka pertama dan angka terakhir yang ditampilkan?", o: ["7", "9", "10", "12"], a: 1 },
+                    { q: "Kata apa yang ditampilkan di tengah layar?", o: ["KATALIS", "DISTILASI", "REAKTOR", "KONDENSOR"], a: 0 }
+                ],
+                reasoning: [
+                    { q: "Semua reaktor CSTR memiliki pengaduk. Reaktor T-101 tidak memiliki pengaduk. Kesimpulan manakah yang paling pasti benar?", o: ["Reaktor T-101 adalah reaktor PFR.", "Reaktor T-101 bukan reaktor CSTR.", "Semua reaktor PFR tidak memiliki pengaduk.", "Reaktor T-101 sudah rusak."], a: 1 },
+                    { q: "Perhatikan urutan proses berikut: Penguapan -> Kondensasi -> Pengumpulan. Pola ini paling mirip dengan proses apa?", o: ["Filtrasi", "Distilasi", "Absorpsi", "Adsorpsi"], a: 1 },
+                    { q: "Hubungan antara 'Pompa' dan 'Fluida' setara dengan hubungan antara 'Kompresor' dan '_______'.", o: ["Padatan", "Cairan", "Gas", "Pipa"], a: 2 },
+                    { q: "Data menunjukkan: Laju alir A > B; Laju alir C < B; Laju alir D > A. Manakah pernyataan yang PASTI salah?", o: ["Laju alir D adalah yang terbesar.", "Laju alir C adalah yang terkecil.", "Laju alir B lebih besar dari C.", "Laju alir A sama dengan C."], a: 3 },
+                    { q: "Dalam sistem pendingin, jika suhu fluida keluar lebih panas dari biasanya, dan laju alir fluida pendingin normal, kemungkinan penyebabnya adalah...", o: ["Laju alir fluida panas menurun.", "Terjadi penyumbatan di pipa pendingin.", "Suhu fluida panas yang masuk lebih tinggi dari biasanya.", "Pompa pendingin mati."], a: 2 }
+                ],
+                technical: [
+                    { q: "Menurut Hukum Termodinamika Kedua, mana dari proses berikut yang tidak mungkin terjadi secara spontan di sistem terisolasi?", o: ["Panas mengalir dari benda panas ke benda dingin.", "Air membeku menjadi es pada suhu -10°C.", "Sebuah mesin menghasilkan kerja tanpa membuang panas sama sekali.", "Gas berekspansi mengisi seluruh ruangan."], a: 2 },
+                    { q: "Untuk memisahkan dua cairan dengan perbedaan titik didih yang sangat kecil, metode manakah yang paling efisien?", o: ["Distilasi Sederhana", "Evaporasi", "Distilasi Fraksional dengan jumlah tray yang banyak", "Ekstraksi"], a: 2 },
+                    { q: "Dalam reaktor batch, untuk reaksi orde kedua (2A -> P), jika konsentrasi awal A digandakan, apa yang terjadi pada laju reaksi awal?", o: ["Menjadi setengahnya.", "Tetap sama.", "Menjadi dua kali lipat.", "Menjadi empat kali lipat."], a: 3 },
+                    { q: "Prinsip Bernoulli menjelaskan hubungan terbalik antara...", o: ["Kecepatan fluida dan massa jenisnya.", "Tekanan fluida dan ketinggiannya.", "Kecepatan fluida dan tekanannya.", "Viskositas fluida dan suhunya."], a: 2 },
+                    { q: "Fungsi utama dari steam trap pada jalur pipa uap (steam) adalah...", o: ["Mengatur tekanan uap.", "Mengukur laju alir uap.", "Memisahkan dan membuang kondensat (air) dari uap.", "Menaikkan suhu uap."], a: 2 }
+                ]
+            };
+
+            function saveScreeningState() {
+                if (currentUser) {
+                    localStorage.setItem(`screening_${currentUser.email}`, JSON.stringify(screeningState));
+                }
+            }
+
+            function loadScreeningState() {
+                // Reset state for new user
+                screeningState = { scores: { recall: 0, reasoning: 0, technical: 0 }, completed: false };
+                if (currentUser) {
+                    const savedState = localStorage.getItem(`screening_${currentUser.email}`);
+                    if (savedState) {
+                        screeningState = JSON.parse(savedState);
+                    }
+                }
+                updateDashboardView();
+            }
+
+            function updateDashboardView() {
+                const overlay = document.getElementById('screening-overlay');
+                const content = document.getElementById('dashboard-content');
+                if (screeningState.completed) {
+                    overlay.classList.add('hidden');
+                    content.classList.remove('opacity-0');
+                    initializeCharts();
+                } else {
+                    overlay.classList.remove('hidden');
+                    content.classList.add('opacity-0');
+                }
+            }
+
+            document.getElementById('start-screening-btn').addEventListener('click', () => {
+                openModal('screening-modal-template', () => { /* Prevent closing */ });
+                startScreeningTest();
+            });
+
+            function startScreeningTest() {
+                const allQuestions = [...screeningQuestions.recall, ...screeningQuestions.reasoning, ...screeningQuestions.technical];
+                let currentQIndex = 0;
+                const userScreeningAnswers = [];
+
+                function displayScreeningQuestion() {
+                    const qData = allQuestions[currentQIndex];
+                    const type = currentQIndex < 5 ? 'recall' : (currentQIndex < 10 ? 'reasoning' : 'technical');
+                    const typeText = {recall: 'Daya Ingat', reasoning: 'Daya Nalar', technical: 'Kompetensi Teknis'}[type];
+                    
+                    const contentEl = document.getElementById('screening-content');
+                    contentEl.innerHTML = `
+                        <div class="mb-4 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">${typeText}</h3>
+                            <span class="text-sm text-gray-500">${currentQIndex + 1} / ${allQuestions.length}</span>
+                        </div>
+                        <p class="text-lg mb-6 text-gray-700">${qData.q}</p>
+                        <div class="space-y-3">
+                            ${qData.o.map((opt, index) => `
+                                <label class="block">
+                                    <input type="radio" name="screening-option" value="${index}" class="hidden peer">
+                                    <div class="p-4 rounded-lg border border-gray-300 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-500 hover:bg-gray-100 cursor-pointer">
+                                        ${String.fromCharCode(65 + index)}. ${opt}
+                                    </div>
+                                </label>
+                            `).join('')}
+                        </div>
+                        <div class="mt-8 text-right">
+                            <button id="next-screening-q-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg disabled:opacity-50" disabled>Selanjutnya</button>
+                        </div>
+                    `;
+
+                    const nextBtn = document.getElementById('next-screening-q-btn');
+                    contentEl.querySelectorAll('input[name="screening-option"]').forEach(radio => {
+                        radio.addEventListener('change', () => nextBtn.disabled = false);
+                    });
+
+                    nextBtn.addEventListener('click', () => {
+                        const selected = contentEl.querySelector('input[name="screening-option"]:checked');
+                        if(selected) {
+                            userScreeningAnswers[currentQIndex] = parseInt(selected.value);
+                            currentQIndex++;
+                            if (currentQIndex < allQuestions.length) {
+                                displayScreeningQuestion();
+                            } else {
+                                finishScreening();
+                            }
+                        }
+                    });
+                }
+
+                function finishScreening() {
+                    screeningState.scores = { recall: 0, reasoning: 0, technical: 0 };
+                    userScreeningAnswers.forEach((answer, index) => {
+                        if (index < 5) { // Recall
+                            if (answer === screeningQuestions.recall[index].a) screeningState.scores.recall++;
+                        } else if (index < 10) { // Reasoning
+                            if (answer === screeningQuestions.reasoning[index-5].a) screeningState.scores.reasoning++;
+                        } else { // Technical
+                            if (answer === screeningQuestions.technical[index-10].a) screeningState.scores.technical++;
+                        }
+                    });
+                    screeningState.completed = true;
+                    saveScreeningState();
+                    closeModal();
+                    updateDashboardView();
+                }
+
+                displayScreeningQuestion();
+            }
+
+            function createChart(ctx, score, color) {
+                const maxScore = 5;
+                const data = {
+                    datasets: [{
+                        data: [score, maxScore - score],
+                        backgroundColor: [color, '#E5E7EB'],
+                        borderWidth: 0,
+                        circumference: 180,
+                        rotation: 270,
+                    }]
+                };
+                return new Chart(ctx, { type: 'doughnut', data: data, options: { responsive: true, cutout: '70%', plugins: { legend: { display: false }, tooltip: { enabled: false } } } });
+            }
+
+            function initializeCharts() {
+                const { recall, reasoning, technical } = screeningState.scores;
+                
+                if (screeningCharts.recall) screeningCharts.recall.destroy();
+                screeningCharts.recall = createChart(document.getElementById('recall-chart').getContext('2d'), recall, '#3B82F6');
+                document.getElementById('recall-score-text').textContent = `${recall}/5`;
+
+                if (screeningCharts.reasoning) screeningCharts.reasoning.destroy();
+                screeningCharts.reasoning = createChart(document.getElementById('reasoning-chart').getContext('2d'), reasoning, '#22C55E');
+                document.getElementById('reasoning-score-text').textContent = `${reasoning}/5`;
+
+                if (screeningCharts.technical) screeningCharts.technical.destroy();
+                screeningCharts.technical = createChart(document.getElementById('technical-chart').getContext('2d'), technical, '#F59E0B');
+                document.getElementById('technical-score-text').textContent = `${technical}/5`;
+
+                updateRecommendations();
+            }
+            
+            function updateRecommendations() {
+                const { recall, reasoning, technical } = screeningState.scores;
+                const recallRec = document.getElementById('recall-recommendation');
+                if (recall >= 4) recallRec.textContent = "Anda siap untuk modul padat informasi. Coba metode Feynman untuk pemahaman mendalam.";
+                else recallRec.textContent = "Pecah materi menjadi bagian kecil (micro-learning). Gunakan metode Leitner & Active Recall.";
+
+                const reasoningRec = document.getElementById('reasoning-recommendation');
+                if (reasoning >= 4) reasoningRec.textContent = "Anda siap untuk studi kasus dan problem-based learning. Tantang diri Anda!";
+                else reasoningRec.textContent = "Fokus pada penjelasan step-by-step. Perbanyak latihan dengan contoh soal.";
+                
+                const technicalRec = document.getElementById('technical-recommendation');
+                if (technical >= 4) technicalRec.textContent = "Anda bisa langsung masuk ke modul tingkat lanjut atau spesialisasi.";
+                else if (technical >= 2) technicalRec.textContent = "Disarankan memulai dari kurikulum standar untuk membangun fondasi yang kuat.";
+                else technicalRec.textContent = "Sangat disarankan memulai dari modul pengantar 'Dasar-Dasar Teknik Kimia'.";
+            }
+
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
