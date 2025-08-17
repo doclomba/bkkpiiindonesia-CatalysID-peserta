@@ -263,34 +263,34 @@
                         <div id="dashboard-content" class="transition-all duration-500">
                             <h2 class="text-3xl font-bold mb-6 text-gray-900">Dashboard Diagnostik</h2>
                              <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                                <!-- Chart Daya Ingat -->
-                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                                    <h3 class="text-xl font-bold text-center mb-4 text-blue-600">Daya Ingat</h3>
-                                    <div class="relative w-48 h-48 mx-auto">
-                                        <canvas id="recall-chart"></canvas>
-                                        <div id="recall-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
-                                    </div>
-                                    <p id="recall-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
-                                </div>
-                                <!-- Chart Daya Nalar -->
-                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                                    <h3 class="text-xl font-bold text-center mb-4 text-green-600">Daya Nalar</h3>
-                                    <div class="relative w-48 h-48 mx-auto">
-                                        <canvas id="reasoning-chart"></canvas>
-                                        <div id="reasoning-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
-                                    </div>
-                                    <p id="reasoning-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
-                                </div>
-                                <!-- Chart Kompetensi Teknis -->
-                                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                                    <h3 class="text-xl font-bold text-center mb-4 text-yellow-500">Kompetensi Teknis</h3>
-                                    <div class="relative w-48 h-48 mx-auto">
-                                        <canvas id="technical-chart"></canvas>
-                                        <div id="technical-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
-                                    </div>
-                                    <p id="technical-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
-                                </div>
-                            </div>
+                                 <!-- Chart Daya Ingat -->
+                                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                     <h3 class="text-xl font-bold text-center mb-4 text-blue-600">Daya Ingat</h3>
+                                     <div class="relative w-48 h-48 mx-auto">
+                                         <canvas id="recall-chart"></canvas>
+                                         <div id="recall-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
+                                     </div>
+                                     <p id="recall-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
+                                 </div>
+                                 <!-- Chart Daya Nalar -->
+                                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                     <h3 class="text-xl font-bold text-center mb-4 text-green-600">Daya Nalar</h3>
+                                     <div class="relative w-48 h-48 mx-auto">
+                                         <canvas id="reasoning-chart"></canvas>
+                                         <div id="reasoning-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
+                                     </div>
+                                     <p id="reasoning-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
+                                 </div>
+                                 <!-- Chart Kompetensi Teknis -->
+                                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                     <h3 class="text-xl font-bold text-center mb-4 text-yellow-500">Kompetensi Teknis</h3>
+                                     <div class="relative w-48 h-48 mx-auto">
+                                         <canvas id="technical-chart"></canvas>
+                                         <div id="technical-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
+                                     </div>
+                                     <p id="technical-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
+                                 </div>
+                             </div>
                         </div>
                         <div id="screening-overlay" class="absolute inset-0 bg-gray-100/50 backdrop-blur-md flex items-center justify-center z-10 rounded-lg">
                             <div class="text-center p-8 bg-white rounded-xl shadow-2xl border border-gray-200">
@@ -669,7 +669,7 @@
             <div class="bg-white w-full max-w-2xl rounded-xl border border-gray-200 p-6 flex flex-col max-h-[90vh]">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-2xl font-bold text-purple-600">Feynman Technique</h3>
-                    <button class="close-modal-btn text-gray-500 hover:text-gray-800">&times;</button>
+                    <button class="close-modal-btn text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
                 </div>
                 <div class="flex-grow overflow-y-auto pr-2 space-y-4">
                     <div>
@@ -698,7 +698,7 @@
             <div class="bg-white w-full max-w-2xl rounded-xl border border-gray-200 p-6 flex flex-col max-h-[90vh]">
                  <div class="flex justify-between items-center mb-4">
                     <h3 class="text-2xl font-bold text-indigo-600">Blurting Method</h3>
-                    <button class="close-modal-btn text-gray-500 hover:text-gray-800">&times;</button>
+                    <button class="close-modal-btn text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
                 </div>
                 <div class="flex-grow flex flex-col">
                     <input type="text" placeholder="Masukkan topik yang baru Anda pelajari..." class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-900 mb-4">
@@ -712,7 +712,7 @@
         <div class="bg-white/80 p-6 rounded-xl border border-gray-200 shadow-md">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold text-gray-900">Sistem Leitner: <span id="leitner-topic"></span></h3>
-                <button id="close-leitner-btn" class="text-gray-500 hover:text-gray-800">&times;</button>
+                <button id="close-leitner-btn" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
             </div>
             
             <div id="leitner-boxes" class="grid grid-cols-5 gap-2 md:gap-4 text-center mb-6">
@@ -754,850 +754,801 @@
         </div>
     </template>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, setDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    <script>
+        // This script is now a standard script, not a module.
+        // All Firebase code has been removed.
+        document.addEventListener('DOMContentLoaded', () => {
+            const appContainer = document.getElementById('app-container');
+            const landingPage = document.getElementById('landing-page');
+            const authPage = document.getElementById('auth-page');
+            const mainApp = document.getElementById('main-app');
+            const loginNavBtn = document.getElementById('login-nav-btn');
+            const getStartedBtn = document.getElementById('get-started-btn');
+            const backToLandingBtn = document.getElementById('back-to-landing-btn');
+            const authTitle = document.getElementById('auth-title');
+            const authError = document.getElementById('auth-error');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const authSwitchText = document.getElementById('auth-switch-text');
+            const authSwitchBtn = document.getElementById('auth-switch-btn');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageContents = document.querySelectorAll('.page-content');
+            const userEmailDisplay = document.getElementById('user-email-display');
+            const userInitial = document.getElementById('user-initial');
+            const logoutBtn = document.getElementById('logout-btn');
+            const settingsEmail = document.getElementById('settings-email');
+            const settingsUserid = document.getElementById('settings-userid');
+            const apiKeyInput = document.getElementById('api-key-input');
+            const topicInput = document.getElementById('topic-input');
+            const generateQuizBtn = document.getElementById('generate-quiz-btn');
+            const generateFlashcardsBtn = document.getElementById('generate-flashcards-btn');
+            const aiResultContainer = document.getElementById('ai-result-container');
+            const modalContainer = document.getElementById('modal-container');
 
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
+            let currentUser = null;
+            let currentQuizData = null;
+            let currentQuestionIndex = 0;
+            let userAnswers = [];
+            let currentFlashcardsData = null;
+            let currentFlashcardIndex = 0;
+            let currentTopic = "";
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+            // Timer States
+            let pomodoroInterval, flowtimeInterval, twoMinuteInterval;
+            let pomodoroState = { timer: null, onBreak: false, running: false, mode: '25-5', seconds: 25 * 60 };
+            let flowtimeState = { timer: null, running: false, seconds: 0 };
+            let twoMinuteState = { timer: null, running: false, seconds: 120 };
 
-        const appContainer = document.getElementById('app-container');
-        const landingPage = document.getElementById('landing-page');
-        const authPage = document.getElementById('auth-page');
-        const mainApp = document.getElementById('main-app');
-        const loginNavBtn = document.getElementById('login-nav-btn');
-        const getStartedBtn = document.getElementById('get-started-btn');
-        const backToLandingBtn = document.getElementById('back-to-landing-btn');
-        const authTitle = document.getElementById('auth-title');
-        const authError = document.getElementById('auth-error');
-        const loginForm = document.getElementById('login-form');
-        const signupForm = document.getElementById('signup-form');
-        const authSwitchText = document.getElementById('auth-switch-text');
-        const authSwitchBtn = document.getElementById('auth-switch-btn');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const pageContents = document.querySelectorAll('.page-content');
-        const userEmailDisplay = document.getElementById('user-email-display');
-        const userInitial = document.getElementById('user-initial');
-        const logoutBtn = document.getElementById('logout-btn');
-        const settingsEmail = document.getElementById('settings-email');
-        const settingsUserid = document.getElementById('settings-userid');
-        const apiKeyInput = document.getElementById('api-key-input');
-        const topicInput = document.getElementById('topic-input');
-        const generateQuizBtn = document.getElementById('generate-quiz-btn');
-        const generateFlashcardsBtn = document.getElementById('generate-flashcards-btn');
-        const aiResultContainer = document.getElementById('ai-result-container');
-        const modalContainer = document.getElementById('modal-container');
+            // Leitner State
+            let leitnerState = { topic: '', boxes: [[], [], [], [], []], cards: [], currentCardIndex: -1, currentBox: -1 };
+            
+            // Screening State
+            let screeningState = { scores: { recall: 0, reasoning: 0, technical: 0 }, completed: false };
+            let screeningCharts = {};
 
-        let currentUser = null;
-        let currentQuizData = null;
-        let currentQuestionIndex = 0;
-        let userAnswers = [];
-        let currentFlashcardsData = null;
-        let currentFlashcardIndex = 0;
-        let currentTopic = "";
+            // --- Page Navigation ---
+            const showPage = (pageId) => {
+                landingPage.classList.add('hidden');
+                authPage.classList.add('hidden');
+                mainApp.classList.add('hidden');
+                document.getElementById(pageId).classList.remove('hidden');
+            };
 
-        // Timer States
-        let pomodoroInterval, flowtimeInterval, twoMinuteInterval;
-        let pomodoroState = { timer: null, onBreak: false, running: false, mode: '25-5', seconds: 25 * 60 };
-        let flowtimeState = { timer: null, running: false, seconds: 0 };
-        let twoMinuteState = { timer: null, running: false, seconds: 120 };
+            // --- Fake Authentication Logic ---
+            const showAppForUser = (email) => {
+                currentUser = {
+                    email: email,
+                    uid: 'static-user-' + email.replace(/[^a-zA-Z0-9]/g, '') // Create a simple static ID
+                };
+                
+                userEmailDisplay.textContent = currentUser.email;
+                userInitial.textContent = currentUser.email ? currentUser.email.charAt(0).toUpperCase() : 'U';
+                settingsEmail.textContent = currentUser.email;
+                settingsUserid.textContent = currentUser.uid;
+                
+                loadScreeningState(); // Load state from localStorage
+                showPage('main-app');
+            };
 
-        // Leitner State
-        let leitnerState = { topic: '', boxes: [[], [], [], [], []], cards: [], currentCardIndex: -1, currentBox: -1 };
-        
-        // Screening State
-        let screeningState = { scores: { recall: 0, reasoning: 0, technical: 0 }, completed: false };
-        let screeningCharts = {};
-
-
-        const showPage = (pageId) => {
-            landingPage.classList.add('hidden');
-            authPage.classList.add('hidden');
-            mainApp.classList.add('hidden');
-            document.getElementById(pageId).classList.remove('hidden');
-        };
-
-        const showAuthForm = (form) => {
-            if (form === 'login') {
-                loginForm.classList.remove('hidden');
-                signupForm.classList.add('hidden');
-                authTitle.textContent = 'Selamat Datang Kembali!';
-                authSwitchText.textContent = 'Belum punya akun?';
-                authSwitchBtn.textContent = 'Daftar Sekarang';
-            } else {
-                loginForm.classList.add('hidden');
-                signupForm.classList.remove('hidden');
-                authTitle.textContent = 'Buat Akun Baru';
-                authSwitchText.textContent = 'Sudah punya akun?';
-                authSwitchBtn.textContent = 'Masuk';
-            }
-            authError.classList.add('hidden');
-        };
-
-        const handleAuthError = (error) => {
-            console.error("Authentication error:", error);
-            let message = "Terjadi kesalahan. Silakan coba lagi.";
-            switch (error.code) {
-                case 'auth/invalid-email': message = 'Format email tidak valid.'; break;
-                case 'auth/user-not-found':
-                case 'auth/wrong-password': message = 'Email atau password salah.'; break;
-                case 'auth/email-already-in-use': message = 'Email ini sudah terdaftar.'; break;
-                case 'auth/weak-password': message = 'Password terlalu lemah. Gunakan minimal 6 karakter.'; break;
-            }
-            authError.textContent = message;
-            authError.classList.remove('hidden');
-        };
-
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                currentUser = user;
-                if (!user.isAnonymous) {
-                    userEmailDisplay.textContent = user.email;
-                    userInitial.textContent = user.email ? user.email.charAt(0).toUpperCase() : 'U';
-                    settingsEmail.textContent = user.email;
-                    settingsUserid.textContent = user.uid;
-                    loadScreeningState(); 
-                    showPage('main-app');
+            const showAuthForm = (form) => {
+                if (form === 'login') {
+                    loginForm.classList.remove('hidden');
+                    signupForm.classList.add('hidden');
+                    authTitle.textContent = 'Selamat Datang Kembali!';
+                    authSwitchText.textContent = 'Belum punya akun?';
+                    authSwitchBtn.textContent = 'Daftar Sekarang';
+                } else {
+                    loginForm.classList.add('hidden');
+                    signupForm.classList.remove('hidden');
+                    authTitle.textContent = 'Buat Akun Baru';
+                    authSwitchText.textContent = 'Sudah punya akun?';
+                    authSwitchBtn.textContent = 'Masuk';
                 }
-            } else {
+                authError.classList.add('hidden');
+            };
+
+            loginNavBtn.addEventListener('click', () => showPage('auth-page'));
+            getStartedBtn.addEventListener('click', () => {
+                showPage('auth-page');
+                showAuthForm('signup');
+            });
+            backToLandingBtn.addEventListener('click', () => showPage('landing-page'));
+
+            authSwitchBtn.addEventListener('click', () => {
+                if (loginForm.classList.contains('hidden')) {
+                    showAuthForm('login');
+                } else {
+                    showAuthForm('signup');
+                }
+            });
+
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+                if (password !== confirmPassword) {
+                    authError.textContent = 'Password dan konfirmasi password tidak cocok.';
+                    authError.classList.remove('hidden');
+                    return;
+                }
+                
+                if (!email) {
+                    authError.textContent = 'Email tidak boleh kosong.';
+                    authError.classList.remove('hidden');
+                    return;
+                }
+
+                // Fake signup successful, log the user in
+                showAppForUser(email);
+            });
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                
+                if (!email) {
+                    authError.textContent = 'Email tidak boleh kosong.';
+                    authError.classList.remove('hidden');
+                    return;
+                }
+                // Fake login successful, anything works
+                showAppForUser(email);
+            });
+
+            logoutBtn.addEventListener('click', () => {
                 currentUser = null;
                 showPage('landing-page');
-            }
-        });
-        
-        const initialAuth = async () => {
-             try {
-                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                     await signInWithCustomToken(auth, __initial_auth_token);
-                 } else {
-                     await signInAnonymously(auth);
-                 }
-             } catch (error) {
-                 console.error("Error with initial authentication:", error);
-                 try {
-                    await signInAnonymously(auth);
-                 } catch (anonError) {
-                    console.error("Fallback anonymous sign-in also failed:", anonError);
-                 }
-             }
-        };
-        initialAuth();
-
-        loginNavBtn.addEventListener('click', () => showPage('auth-page'));
-        getStartedBtn.addEventListener('click', () => {
-            showPage('auth-page');
-            showAuthForm('signup');
-        });
-        backToLandingBtn.addEventListener('click', () => showPage('landing-page'));
-
-        authSwitchBtn.addEventListener('click', () => {
-            if (loginForm.classList.contains('hidden')) {
-                showAuthForm('login');
-            } else {
-                showAuthForm('signup');
-            }
-        });
-
-        signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
-            const confirmPassword = document.getElementById('signup-confirm-password').value;
-
-            if (password !== confirmPassword) {
-                handleAuthError({ code: 'auth/password-mismatch', message: 'Password dan konfirmasi password tidak cocok.'});
-                authError.textContent = 'Password dan konfirmasi password tidak cocok.';
-                authError.classList.remove('hidden');
-                return;
-            }
-
-            try {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                const userDocRef = doc(db, 'artifacts', appId, 'users', userCredential.user.uid);
-                await setDoc(userDocRef, {
-                    email: userCredential.user.email,
-                    createdAt: new Date(),
-                    screening: screeningState
-                });
-            } catch (error) {
-                handleAuthError(error);
-            }
-        });
-
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-            } catch (error) {
-                handleAuthError(error);
-            }
-        });
-
-        logoutBtn.addEventListener('click', async () => {
-            await signOut(auth);
-            // After sign out, sign in anonymously again to allow new logins/signups
-            await signInAnonymously(auth);
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const page = link.dataset.page;
-                pageContents.forEach(content => content.classList.add('hidden'));
-                document.getElementById(`page-${page}`).classList.remove('hidden');
-                navLinks.forEach(nav => {
-                    nav.classList.remove('bg-blue-100', 'text-blue-700', 'font-semibold');
-                    nav.classList.add('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900');
-                });
-                link.classList.add('bg-blue-100', 'text-blue-700', 'font-semibold');
-                link.classList.remove('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900');
             });
-        });
-        
-        async function callGeminiApi(prompt, apiKey, schema) {
-            const model = "gemini-2.5-flash-preview-05-20";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ role: "user", parts: [{ text: prompt }] }],
-                generationConfig: { responseMimeType: "application/json", responseSchema: schema },
-            };
-            let response, result, retries = 3, delay = 1000;
-            for (let i = 0; i < retries; i++) {
-                try {
-                    response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                    if (response.ok) {
-                        result = await response.json();
-                        if (result.candidates?.[0]?.content?.parts?.[0]) {
-                            return JSON.parse(result.candidates[0].content.parts[0].text);
+
+            // --- Main App Navigation ---
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = link.dataset.page;
+                    pageContents.forEach(content => content.classList.add('hidden'));
+                    document.getElementById(`page-${page}`).classList.remove('hidden');
+                    navLinks.forEach(nav => {
+                        nav.classList.remove('bg-blue-100', 'text-blue-700', 'font-semibold');
+                        nav.classList.add('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900');
+                    });
+                    link.classList.add('bg-blue-100', 'text-blue-700', 'font-semibold');
+                    link.classList.remove('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900');
+                });
+            });
+            
+            // --- Gemini API Call ---
+            async function callGeminiApi(prompt, apiKey, schema) {
+                const model = "gemini-2.5-flash-preview-05-20";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: prompt }] }],
+                    generationConfig: { responseMimeType: "application/json", responseSchema: schema },
+                };
+                let response, result, retries = 3, delay = 1000;
+                for (let i = 0; i < retries; i++) {
+                    try {
+                        response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                        if (response.ok) {
+                            result = await response.json();
+                            if (result.candidates?.[0]?.content?.parts?.[0]) {
+                                return JSON.parse(result.candidates[0].content.parts[0].text);
+                            }
+                        } else if (response.status === 429) {
+                            console.warn(`API rate limit hit. Retrying in ${delay / 1000}s...`);
+                            await new Promise(res => setTimeout(res, delay));
+                            delay *= 2;
+                        } else {
+                            result = await response.json();
+                            throw new Error(result.error?.message || `HTTP error! status: ${response.status}`);
                         }
-                    } else if (response.status === 429) {
-                        console.warn(`API rate limit hit. Retrying in ${delay / 1000}s...`);
-                        await new Promise(res => setTimeout(res, delay));
-                        delay *= 2;
-                    } else {
-                        result = await response.json();
-                        throw new Error(result.error?.message || `HTTP error! status: ${response.status}`);
+                    } catch (error) {
+                        console.error("API call error:", error);
+                        if (i === retries - 1) throw error;
                     }
+                }
+                throw new Error("API call failed after multiple retries.");
+            }
+            
+            function showLoader() {
+                const loaderTemplate = document.getElementById('loader-template');
+                const loader = loaderTemplate.content.cloneNode(true);
+                aiResultContainer.innerHTML = '';
+                aiResultContainer.appendChild(loader);
+            }
+
+            function displayError(message) {
+                aiResultContainer.innerHTML = `<div class="bg-red-100 text-red-700 p-4 rounded-lg text-center">${message}</div>`;
+            }
+            
+            generateQuizBtn.addEventListener('click', async () => {
+                const topic = topicInput.value.trim();
+                const apiKey = apiKeyInput.value.trim();
+                if (!topic || !apiKey) { alert("Harap masukkan Topik dan API Key Anda."); return; }
+                showLoader();
+                const quizSchema = { type: "OBJECT", properties: { questions: { type: "ARRAY", items: { type: "OBJECT", properties: { questionText: { type: "STRING" }, options: { type: "ARRAY", items: { type: "STRING" } }, correctAnswerIndex: { type: "INTEGER" }, explanation: { type: "STRING" } }, required: ["questionText", "options", "correctAnswerIndex", "explanation"] } } }, required: ["questions"] };
+                const prompt = `Buat kuis pilihan ganda dengan 5 pertanyaan tentang topik "${topic}". Untuk setiap pertanyaan, berikan 4 pilihan jawaban. Pastikan untuk menyertakan indeks jawaban yang benar (0-3) dan penjelasan singkat mengapa jawaban itu benar. Format respons Anda harus sesuai dengan skema JSON yang diberikan.`;
+                try {
+                    const data = await callGeminiApi(prompt, apiKey, quizSchema);
+                    if (data?.questions?.length > 0) { currentQuizData = data.questions; startQuiz(topic); } 
+                    else { throw new Error("Struktur data kuis dari API tidak valid."); }
                 } catch (error) {
-                    console.error("API call error:", error);
-                    if (i === retries - 1) throw error;
+                    console.error("Gagal membuat kuis:", error);
+                    displayError(`Gagal membuat kuis. ${error.message}. Pastikan API Key Anda benar dan memiliki izin.`);
+                }
+            });
+
+            function startQuiz(topic) {
+                currentQuestionIndex = 0;
+                userAnswers = new Array(currentQuizData.length).fill(null);
+                const quiz = document.getElementById('quiz-template').content.cloneNode(true);
+                aiResultContainer.innerHTML = '';
+                aiResultContainer.appendChild(quiz);
+                document.getElementById('quiz-topic').textContent = topic;
+                displayQuestion();
+                document.getElementById('next-question-btn').addEventListener('click', nextQuestion);
+                document.getElementById('prev-question-btn').addEventListener('click', prevQuestion);
+                document.getElementById('retake-quiz-btn').addEventListener('click', () => startQuiz(topic));
+            }
+
+            function displayQuestion() {
+                const questionData = currentQuizData[currentQuestionIndex];
+                document.getElementById('quiz-content').innerHTML = `<div class="mb-4"><p class="text-lg font-medium">${currentQuestionIndex + 1}. ${questionData.questionText}</p></div><div class="space-y-3">${questionData.options.map((option, index) => `<label class="flex items-center p-4 rounded-lg border border-gray-300 hover:bg-gray-100 cursor-pointer transition-colors"><input type="radio" name="quiz-option" value="${index}" class="mr-4" ${userAnswers[currentQuestionIndex] === index ? 'checked' : ''}><span>${option}</span></label>`).join('')}</div>`;
+                document.querySelectorAll('input[name="quiz-option"]').forEach(radio => {
+                    radio.addEventListener('change', (e) => { userAnswers[currentQuestionIndex] = parseInt(e.target.value); });
+                });
+                updateNavigation();
+            }
+
+            function updateNavigation() {
+                document.getElementById('question-counter').textContent = `Pertanyaan ${currentQuestionIndex + 1} dari ${currentQuizData.length}`;
+                document.getElementById('prev-question-btn').disabled = currentQuestionIndex === 0;
+                const nextBtn = document.getElementById('next-question-btn');
+                if (currentQuestionIndex === currentQuizData.length - 1) {
+                    nextBtn.textContent = 'Lihat Hasil';
+                    nextBtn.classList.replace('bg-blue-600', 'bg-green-600');
+                    nextBtn.classList.replace('hover:bg-blue-700', 'hover:bg-green-700');
+                } else {
+                    nextBtn.textContent = 'Selanjutnya';
+                    nextBtn.classList.replace('bg-green-600', 'bg-blue-600');
+                    nextBtn.classList.replace('hover:bg-green-700', 'hover:bg-blue-700');
                 }
             }
-            throw new Error("API call failed after multiple retries.");
-        }
-        
-        function showLoader() {
-            const loaderTemplate = document.getElementById('loader-template');
-            const loader = loaderTemplate.content.cloneNode(true);
-            aiResultContainer.innerHTML = '';
-            aiResultContainer.appendChild(loader);
-        }
 
-        function displayError(message) {
-            aiResultContainer.innerHTML = `<div class="bg-red-100 text-red-700 p-4 rounded-lg text-center">${message}</div>`;
-        }
-        
-        generateQuizBtn.addEventListener('click', async () => {
-            const topic = topicInput.value.trim();
-            const apiKey = apiKeyInput.value.trim();
-            if (!topic || !apiKey) { alert("Harap masukkan Topik dan API Key Anda."); return; }
-            showLoader();
-            const quizSchema = { type: "OBJECT", properties: { questions: { type: "ARRAY", items: { type: "OBJECT", properties: { questionText: { type: "STRING" }, options: { type: "ARRAY", items: { type: "STRING" } }, correctAnswerIndex: { type: "INTEGER" }, explanation: { type: "STRING" } }, required: ["questionText", "options", "correctAnswerIndex", "explanation"] } } }, required: ["questions"] };
-            const prompt = `Buat kuis pilihan ganda dengan 5 pertanyaan tentang topik "${topic}". Untuk setiap pertanyaan, berikan 4 pilihan jawaban. Pastikan untuk menyertakan indeks jawaban yang benar (0-3) dan penjelasan singkat mengapa jawaban itu benar. Format respons Anda harus sesuai dengan skema JSON yang diberikan.`;
-            try {
-                const data = await callGeminiApi(prompt, apiKey, quizSchema);
-                if (data?.questions?.length > 0) { currentQuizData = data.questions; startQuiz(topic); } 
-                else { throw new Error("Struktur data kuis dari API tidak valid."); }
-            } catch (error) {
-                console.error("Gagal membuat kuis:", error);
-                displayError(`Gagal membuat kuis. ${error.message}. Pastikan API Key Anda benar dan memiliki izin.`);
+            function nextQuestion() {
+                if (currentQuestionIndex < currentQuizData.length - 1) { currentQuestionIndex++; displayQuestion(); } 
+                else { showResults(); }
             }
-        });
 
-        function startQuiz(topic) {
-            currentQuestionIndex = 0;
-            userAnswers = new Array(currentQuizData.length).fill(null);
-            const quiz = document.getElementById('quiz-template').content.cloneNode(true);
-            aiResultContainer.innerHTML = '';
-            aiResultContainer.appendChild(quiz);
-            document.getElementById('quiz-topic').textContent = topic;
-            displayQuestion();
-            document.getElementById('next-question-btn').addEventListener('click', nextQuestion);
-            document.getElementById('prev-question-btn').addEventListener('click', prevQuestion);
-            document.getElementById('retake-quiz-btn').addEventListener('click', () => startQuiz(topic));
-        }
+            function prevQuestion() {
+                if (currentQuestionIndex > 0) { currentQuestionIndex--; displayQuestion(); }
+            }
 
-        function displayQuestion() {
-            const questionData = currentQuizData[currentQuestionIndex];
-            document.getElementById('quiz-content').innerHTML = `<div class="mb-4"><p class="text-lg font-medium">${currentQuestionIndex + 1}. ${questionData.questionText}</p></div><div class="space-y-3">${questionData.options.map((option, index) => `<label class="flex items-center p-4 rounded-lg border border-gray-300 hover:bg-gray-100 cursor-pointer transition-colors"><input type="radio" name="quiz-option" value="${index}" class="mr-4" ${userAnswers[currentQuestionIndex] === index ? 'checked' : ''}><span>${option}</span></label>`).join('')}</div>`;
-            document.querySelectorAll('input[name="quiz-option"]').forEach(radio => {
-                radio.addEventListener('change', (e) => { userAnswers[currentQuestionIndex] = parseInt(e.target.value); });
+            function showResults() {
+                let score = 0;
+                userAnswers.forEach((answer, index) => { if (answer === currentQuizData[index].correctAnswerIndex) score++; });
+                const quizContent = document.getElementById('quiz-content');
+                quizContent.innerHTML = '';
+                currentQuizData.forEach((q, index) => {
+                    const resultBlock = document.createElement('div');
+                    resultBlock.className = 'mb-6 p-4 rounded-lg border';
+                    const isCorrect = userAnswers[index] === q.correctAnswerIndex;
+                    resultBlock.classList.add(isCorrect ? 'border-green-200' : 'border-red-200', isCorrect ? 'bg-green-50' : 'bg-red-50');
+                    let optionsHtml = q.options.map((opt, i) => {
+                        let style = '';
+                        if (i === q.correctAnswerIndex) style = 'text-green-700 font-bold';
+                        if (i === userAnswers[index] && !isCorrect) style = 'text-red-700 line-through';
+                        return `<li class="${style}">${opt}</li>`;
+                    }).join('');
+                    resultBlock.innerHTML = `<p class="font-semibold mb-2">${index + 1}. ${q.questionText}</p><ul class="list-disc list-inside mb-2">${optionsHtml}</ul><p class="text-sm text-gray-600 p-3 rounded-md bg-gray-100"><strong>Penjelasan:</strong> ${q.explanation}</p>`;
+                    quizContent.appendChild(resultBlock);
+                });
+                document.getElementById('quiz-navigation').classList.add('hidden');
+                document.getElementById('quiz-result').classList.remove('hidden');
+                document.getElementById('quiz-score').textContent = `${score} / ${currentQuizData.length}`;
+            }
+            
+            generateFlashcardsBtn.addEventListener('click', async () => {
+                currentTopic = topicInput.value.trim();
+                const apiKey = apiKeyInput.value.trim();
+                if (!currentTopic || !apiKey) { alert("Harap masukkan Topik dan API Key Anda."); return; }
+                showLoader();
+                const flashcardSchema = { type: "OBJECT", properties: { flashcards: { type: "ARRAY", items: { type: "OBJECT", properties: { term: { type: "STRING" }, definition: { type: "STRING" } }, required: ["term", "definition"] } } }, required: ["flashcards"] };
+                const prompt = `Buat satu set berisi 10 flashcard tentang topik "${currentTopic}". Setiap flashcard harus memiliki 'term' (istilah) dan 'definition' (definisi singkat dan jelas). Format respons Anda harus sesuai dengan skema JSON yang diberikan.`;
+                try {
+                    const data = await callGeminiApi(prompt, apiKey, flashcardSchema);
+                    if (data?.flashcards?.length > 0) { currentFlashcardsData = data.flashcards; startFlashcards(currentTopic); } 
+                    else { throw new Error("Struktur data flashcard dari API tidak valid."); }
+                } catch (error) {
+                    console.error("Gagal membuat flashcard:", error);
+                    displayError(`Gagal membuat flashcard. ${error.message}. Pastikan API Key Anda benar dan memiliki izin.`);
+                }
             });
-            updateNavigation();
-        }
-
-        function updateNavigation() {
-            document.getElementById('question-counter').textContent = `Pertanyaan ${currentQuestionIndex + 1} dari ${currentQuizData.length}`;
-            document.getElementById('prev-question-btn').disabled = currentQuestionIndex === 0;
-            const nextBtn = document.getElementById('next-question-btn');
-            if (currentQuestionIndex === currentQuizData.length - 1) {
-                nextBtn.textContent = 'Lihat Hasil';
-                nextBtn.classList.replace('bg-blue-600', 'bg-green-600');
-                nextBtn.classList.replace('hover:bg-blue-700', 'hover:bg-green-700');
-            } else {
-                nextBtn.textContent = 'Selanjutnya';
-                nextBtn.classList.replace('bg-green-600', 'bg-blue-600');
-                nextBtn.classList.replace('hover:bg-green-700', 'hover:bg-blue-700');
+            
+            function startFlashcards(topic) {
+                currentFlashcardIndex = 0;
+                const flashcards = document.getElementById('flashcards-template').content.cloneNode(true);
+                aiResultContainer.innerHTML = '';
+                aiResultContainer.appendChild(flashcards);
+                document.getElementById('flashcards-topic').textContent = topic;
+                displayFlashcard();
+                document.getElementById('flashcard-container').addEventListener('click', () => document.getElementById('flashcard-container').classList.toggle('flipped'));
+                document.getElementById('next-flashcard-btn').addEventListener('click', nextFlashcard);
+                document.getElementById('prev-flashcard-btn').addEventListener('click', prevFlashcard);
+                document.getElementById('start-leitner-btn').addEventListener('click', startLeitnerSystem);
             }
-        }
 
-        function nextQuestion() {
-            if (currentQuestionIndex < currentQuizData.length - 1) { currentQuestionIndex++; displayQuestion(); } 
-            else { showResults(); }
-        }
-
-        function prevQuestion() {
-            if (currentQuestionIndex > 0) { currentQuestionIndex--; displayQuestion(); }
-        }
-
-        function showResults() {
-            let score = 0;
-            userAnswers.forEach((answer, index) => { if (answer === currentQuizData[index].correctAnswerIndex) score++; });
-            const quizContent = document.getElementById('quiz-content');
-            quizContent.innerHTML = '';
-            currentQuizData.forEach((q, index) => {
-                const resultBlock = document.createElement('div');
-                resultBlock.className = 'mb-6 p-4 rounded-lg border';
-                const isCorrect = userAnswers[index] === q.correctAnswerIndex;
-                resultBlock.classList.add(isCorrect ? 'border-green-200' : 'border-red-200', isCorrect ? 'bg-green-50' : 'bg-red-50');
-                let optionsHtml = q.options.map((opt, i) => {
-                    let style = '';
-                    if (i === q.correctAnswerIndex) style = 'text-green-700 font-bold';
-                    if (i === userAnswers[index] && !isCorrect) style = 'text-red-700 line-through';
-                    return `<li class="${style}">${opt}</li>`;
-                }).join('');
-                resultBlock.innerHTML = `<p class="font-semibold mb-2">${index + 1}. ${q.questionText}</p><ul class="list-disc list-inside mb-2">${optionsHtml}</ul><p class="text-sm text-gray-600 p-3 rounded-md bg-gray-100"><strong>Penjelasan:</strong> ${q.explanation}</p>`;
-                quizContent.appendChild(resultBlock);
-            });
-            document.getElementById('quiz-navigation').classList.add('hidden');
-            document.getElementById('quiz-result').classList.remove('hidden');
-            document.getElementById('quiz-score').textContent = `${score} / ${currentQuizData.length}`;
-        }
-        
-        generateFlashcardsBtn.addEventListener('click', async () => {
-            currentTopic = topicInput.value.trim();
-            const apiKey = apiKeyInput.value.trim();
-            if (!currentTopic || !apiKey) { alert("Harap masukkan Topik dan API Key Anda."); return; }
-            showLoader();
-            const flashcardSchema = { type: "OBJECT", properties: { flashcards: { type: "ARRAY", items: { type: "OBJECT", properties: { term: { type: "STRING" }, definition: { type: "STRING" } }, required: ["term", "definition"] } } }, required: ["flashcards"] };
-            const prompt = `Buat satu set berisi 10 flashcard tentang topik "${currentTopic}". Setiap flashcard harus memiliki 'term' (istilah) dan 'definition' (definisi singkat dan jelas). Format respons Anda harus sesuai dengan skema JSON yang diberikan.`;
-            try {
-                const data = await callGeminiApi(prompt, apiKey, flashcardSchema);
-                if (data?.flashcards?.length > 0) { currentFlashcardsData = data.flashcards; startFlashcards(currentTopic); } 
-                else { throw new Error("Struktur data flashcard dari API tidak valid."); }
-            } catch (error) {
-                console.error("Gagal membuat flashcard:", error);
-                displayError(`Gagal membuat flashcard. ${error.message}. Pastikan API Key Anda benar dan memiliki izin.`);
-            }
-        });
-        
-        function startFlashcards(topic) {
-            currentFlashcardIndex = 0;
-            const flashcards = document.getElementById('flashcards-template').content.cloneNode(true);
-            aiResultContainer.innerHTML = '';
-            aiResultContainer.appendChild(flashcards);
-            document.getElementById('flashcards-topic').textContent = topic;
-            displayFlashcard();
-            document.getElementById('flashcard-container').addEventListener('click', () => document.getElementById('flashcard-container').classList.toggle('flipped'));
-            document.getElementById('next-flashcard-btn').addEventListener('click', nextFlashcard);
-            document.getElementById('prev-flashcard-btn').addEventListener('click', prevFlashcard);
-            document.getElementById('start-leitner-btn').addEventListener('click', startLeitnerSystem);
-        }
-
-        function displayFlashcard() {
-            const cardData = currentFlashcardsData[currentFlashcardIndex];
-            const container = document.getElementById('flashcard-container');
-            if (container.classList.contains('flipped')) {
-                container.classList.remove('flipped');
-                setTimeout(() => {
+            function displayFlashcard() {
+                const cardData = currentFlashcardsData[currentFlashcardIndex];
+                const container = document.getElementById('flashcard-container');
+                if (container.classList.contains('flipped')) {
+                    container.classList.remove('flipped');
+                    setTimeout(() => {
+                        document.getElementById('flashcard-front-content').textContent = cardData.term;
+                        document.getElementById('flashcard-back-content').textContent = cardData.definition;
+                    }, 300);
+                } else {
                     document.getElementById('flashcard-front-content').textContent = cardData.term;
                     document.getElementById('flashcard-back-content').textContent = cardData.definition;
-                }, 300);
-            } else {
-                document.getElementById('flashcard-front-content').textContent = cardData.term;
-                document.getElementById('flashcard-back-content').textContent = cardData.definition;
+                }
+                document.getElementById('flashcard-counter').textContent = `${currentFlashcardIndex + 1} / ${currentFlashcardsData.length}`;
+                document.getElementById('prev-flashcard-btn').disabled = currentFlashcardIndex === 0;
+                document.getElementById('next-flashcard-btn').disabled = currentFlashcardIndex === currentFlashcardsData.length - 1;
             }
-            document.getElementById('flashcard-counter').textContent = `${currentFlashcardIndex + 1} / ${currentFlashcardsData.length}`;
-            document.getElementById('prev-flashcard-btn').disabled = currentFlashcardIndex === 0;
-            document.getElementById('next-flashcard-btn').disabled = currentFlashcardIndex === currentFlashcardsData.length - 1;
-        }
 
-        function nextFlashcard() { if (currentFlashcardIndex < currentFlashcardsData.length - 1) { currentFlashcardIndex++; displayFlashcard(); } }
-        function prevFlashcard() { if (currentFlashcardIndex > 0) { currentFlashcardIndex--; displayFlashcard(); } }
+            function nextFlashcard() { if (currentFlashcardIndex < currentFlashcardsData.length - 1) { currentFlashcardIndex++; displayFlashcard(); } }
+            function prevFlashcard() { if (currentFlashcardIndex > 0) { currentFlashcardIndex--; displayFlashcard(); } }
 
-        // Modal Logic
-        function openModal(templateId, closeCallback) {
-            const template = document.getElementById(templateId);
-            modalContainer.innerHTML = '';
-            modalContainer.appendChild(template.content.cloneNode(true));
-            const closeBtn = modalContainer.querySelector('.close-modal-btn');
-            if(closeBtn) {
-                closeBtn.addEventListener('click', closeCallback || closeModal);
+            // --- Modal Logic ---
+            function openModal(templateId, closeCallback) {
+                const template = document.getElementById(templateId);
+                modalContainer.innerHTML = '';
+                modalContainer.appendChild(template.content.cloneNode(true));
+                const closeBtn = modalContainer.querySelector('.close-modal-btn');
+                if(closeBtn) {
+                    closeBtn.addEventListener('click', closeCallback || closeModal);
+                }
             }
-        }
-        function closeModal() { modalContainer.innerHTML = ''; }
-        document.getElementById('feynman-start-btn').addEventListener('click', () => openModal('feynman-modal-template'));
-        document.getElementById('blurting-start-btn').addEventListener('click', () => openModal('blurting-modal-template'));
+            function closeModal() { modalContainer.innerHTML = ''; }
+            document.getElementById('feynman-start-btn').addEventListener('click', () => openModal('feynman-modal-template'));
+            document.getElementById('blurting-start-btn').addEventListener('click', () => openModal('blurting-modal-template'));
 
-        // Timer Formatting
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
-            const secs = (seconds % 60).toString().padStart(2, '0');
-            return `${mins}:${secs}`;
-        }
-        function formatStopwatch(seconds) {
-            const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
-            const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
-            const s = (seconds % 60).toString().padStart(2, '0');
-            return `${h}:${m}:${s}`;
-        }
-
-        // Pomodoro Logic
-        const pomodoroTimerEl = document.getElementById('pomodoro-timer');
-        const pomodoroStatusEl = document.getElementById('pomodoro-status');
-        const pomodoroStartPauseBtn = document.getElementById('pomodoro-start-pause');
-
-        function updatePomodoroDisplay() {
-            pomodoroTimerEl.textContent = formatTime(pomodoroState.seconds);
-        }
-
-        function handlePomodoro() {
-            pomodoroState.seconds--;
-            updatePomodoroDisplay();
-            if (pomodoroState.seconds <= 0) {
-                pomodoroState.onBreak = !pomodoroState.onBreak;
-                const [work, rest] = pomodoroState.mode.split('-').map(Number);
-                pomodoroState.seconds = pomodoroState.onBreak ? rest * 60 : work * 60;
-                pomodoroStatusEl.textContent = pomodoroState.onBreak ? "Waktunya Istirahat!" : "Waktunya Fokus!";
-                pomodoroStatusEl.classList.toggle('text-green-600', pomodoroState.onBreak);
-                pomodoroStatusEl.classList.toggle('text-blue-600', !pomodoroState.onBreak);
+            // --- Timer Formatting ---
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+                const secs = (seconds % 60).toString().padStart(2, '0');
+                return `${mins}:${secs}`;
             }
-        }
-
-        document.getElementById('pomodoro-start-pause').addEventListener('click', () => {
-            pomodoroState.running = !pomodoroState.running;
-            if (pomodoroState.running) {
-                pomodoroState.timer = setInterval(handlePomodoro, 1000);
-                pomodoroStartPauseBtn.textContent = 'Jeda';
-                pomodoroStartPauseBtn.classList.replace('bg-blue-600', 'bg-yellow-500');
-            } else {
-                clearInterval(pomodoroState.timer);
-                pomodoroStartPauseBtn.textContent = 'Lanjut';
-                pomodoroStartPauseBtn.classList.replace('bg-yellow-500', 'bg-blue-600');
+            function formatStopwatch(seconds) {
+                const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+                const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+                const s = (seconds % 60).toString().padStart(2, '0');
+                return `${h}:${m}:${s}`;
             }
-        });
 
-        function resetPomodoro() {
-            clearInterval(pomodoroState.timer);
-            pomodoroState.running = false;
-            pomodoroState.onBreak = false;
-            const [work] = pomodoroState.mode.split('-').map(Number);
-            pomodoroState.seconds = work * 60;
-            updatePomodoroDisplay();
-            pomodoroStatusEl.textContent = "Waktunya Fokus!";
-            pomodoroStatusEl.className = 'text-blue-600 font-semibold';
-            pomodoroStartPauseBtn.textContent = 'Mulai';
-            pomodoroStartPauseBtn.className = 'bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg';
-        }
+            // --- Pomodoro Logic ---
+            const pomodoroTimerEl = document.getElementById('pomodoro-timer');
+            const pomodoroStatusEl = document.getElementById('pomodoro-status');
+            const pomodoroStartPauseBtn = document.getElementById('pomodoro-start-pause');
 
-        document.getElementById('pomodoro-reset').addEventListener('click', resetPomodoro);
-        document.getElementById('pomodoro-mode').addEventListener('change', (e) => {
-            pomodoroState.mode = e.target.value;
-            resetPomodoro();
-        });
-
-        // Flowtime Logic
-        const flowtimeTimerEl = document.getElementById('flowtime-timer');
-        const flowtimeStatusEl = document.getElementById('flowtime-status');
-        const flowtimeStartStopBtn = document.getElementById('flowtime-start-stop');
-        const flowtimeLogEl = document.getElementById('flowtime-log');
-
-        function handleFlowtime() {
-            flowtimeState.seconds++;
-            flowtimeTimerEl.textContent = formatStopwatch(flowtimeState.seconds);
-        }
-
-        flowtimeStartStopBtn.addEventListener('click', () => {
-            flowtimeState.running = !flowtimeState.running;
-            if (flowtimeState.running) {
-                flowtimeState.timer = setInterval(handleFlowtime, 1000);
-                flowtimeStartStopBtn.textContent = 'Fokus Hilang';
-                flowtimeStartStopBtn.classList.replace('bg-green-600', 'bg-red-600');
-                flowtimeStatusEl.textContent = 'Sesi sedang berjalan...';
-            } else {
-                clearInterval(flowtimeState.timer);
-                const focusMinutes = Math.floor(flowtimeState.seconds / 60);
-                let breakMinutes = 0;
-                if (focusMinutes <= 25) breakMinutes = 5;
-                else if (focusMinutes <= 50) breakMinutes = 8;
-                else if (focusMinutes <= 90) breakMinutes = 15;
-                else breakMinutes = 20;
-                
-                flowtimeStatusEl.textContent = `Istirahat disarankan: ${breakMinutes} menit`;
-                const logEntry = document.createElement('p');
-                logEntry.textContent = `Sesi: ${focusMinutes} menit, Istirahat: ${breakMinutes} menit`;
-                flowtimeLogEl.prepend(logEntry);
-
-                flowtimeState.seconds = 0;
-                flowtimeTimerEl.textContent = formatStopwatch(0);
-                flowtimeStartStopBtn.textContent = 'Mulai Sesi Baru';
-                flowtimeStartStopBtn.classList.replace('bg-red-600', 'bg-green-600');
+            function updatePomodoroDisplay() {
+                pomodoroTimerEl.textContent = formatTime(pomodoroState.seconds);
             }
-        });
 
-        // 2-Minute Rule Logic
-        const twoMinTimerEl = document.getElementById('two-minute-timer');
-        const twoMinStatusEl = document.getElementById('two-minute-status');
-        const twoMinStartBtn = document.getElementById('two-minute-start');
-
-        function handleTwoMinute() {
-            twoMinuteState.seconds--;
-            twoMinTimerEl.textContent = formatTime(twoMinuteState.seconds);
-            if (twoMinuteState.seconds <= 0) {
-                clearInterval(twoMinuteState.timer);
-                twoMinuteState.running = false;
-                twoMinStatusEl.textContent = 'Waktu Habis!';
-                twoMinStartBtn.disabled = false;
-                twoMinStartBtn.textContent = 'Mulai Lagi';
+            function handlePomodoro() {
+                pomodoroState.seconds--;
+                updatePomodoroDisplay();
+                if (pomodoroState.seconds <= 0) {
+                    pomodoroState.onBreak = !pomodoroState.onBreak;
+                    const [work, rest] = pomodoroState.mode.split('-').map(Number);
+                    pomodoroState.seconds = pomodoroState.onBreak ? rest * 60 : work * 60;
+                    pomodoroStatusEl.textContent = pomodoroState.onBreak ? "Waktunya Istirahat!" : "Waktunya Fokus!";
+                    pomodoroStatusEl.classList.toggle('text-green-600', pomodoroState.onBreak);
+                    pomodoroStatusEl.classList.toggle('text-blue-600', !pomodoroState.onBreak);
+                }
             }
-        }
 
-        twoMinStartBtn.addEventListener('click', () => {
-            if (twoMinuteState.running) return;
-            twoMinuteState.running = true;
-            twoMinuteState.seconds = 120;
-            twoMinTimerEl.textContent = formatTime(120);
-            twoMinStatusEl.textContent = 'Ayo mulai!';
-            twoMinStartBtn.disabled = true;
-            twoMinuteState.timer = setInterval(handleTwoMinute, 1000);
-        });
-
-        // Leitner System Logic
-        function startLeitnerSystem() {
-            const leitnerTemplate = document.getElementById('leitner-system-template').content.cloneNode(true);
-            aiResultContainer.innerHTML = '';
-            aiResultContainer.appendChild(leitnerTemplate);
-            
-            leitnerState.topic = currentTopic;
-            leitnerState.cards = [...currentFlashcardsData];
-            loadLeitnerState();
-
-            document.getElementById('leitner-topic').textContent = leitnerState.topic;
-            document.getElementById('close-leitner-btn').addEventListener('click', () => {
-                aiResultContainer.innerHTML = ''; // Or restore previous view
-            });
-            document.getElementById('leitner-reset-btn').addEventListener('click', () => {
-                if (confirm('Anda yakin ingin mereset progress Leitner untuk topik ini?')) {
-                    resetLeitnerState();
-                    renderLeitnerBoxes();
+            document.getElementById('pomodoro-start-pause').addEventListener('click', () => {
+                pomodoroState.running = !pomodoroState.running;
+                if (pomodoroState.running) {
+                    pomodoroState.timer = setInterval(handlePomodoro, 1000);
+                    pomodoroStartPauseBtn.textContent = 'Jeda';
+                    pomodoroStartPauseBtn.classList.replace('bg-blue-600', 'bg-yellow-500');
+                } else {
+                    clearInterval(pomodoroState.timer);
+                    pomodoroStartPauseBtn.textContent = 'Lanjut';
+                    pomodoroStartPauseBtn.classList.replace('bg-yellow-500', 'bg-blue-600');
                 }
             });
 
-            renderLeitnerBoxes();
-        }
+            function resetPomodoro() {
+                clearInterval(pomodoroState.timer);
+                pomodoroState.running = false;
+                pomodoroState.onBreak = false;
+                const [work] = pomodoroState.mode.split('-').map(Number);
+                pomodoroState.seconds = work * 60;
+                updatePomodoroDisplay();
+                pomodoroStatusEl.textContent = "Waktunya Fokus!";
+                pomodoroStatusEl.className = 'text-blue-600 font-semibold';
+                pomodoroStartPauseBtn.textContent = 'Mulai';
+                pomodoroStartPauseBtn.className = 'bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg';
+            }
 
-        function saveLeitnerState() {
-            localStorage.setItem(`leitner_${leitnerState.topic}`, JSON.stringify(leitnerState.boxes));
-        }
+            document.getElementById('pomodoro-reset').addEventListener('click', resetPomodoro);
+            document.getElementById('pomodoro-mode').addEventListener('change', (e) => {
+                pomodoroState.mode = e.target.value;
+                resetPomodoro();
+            });
 
-        function loadLeitnerState() {
-            const savedState = localStorage.getItem(`leitner_${leitnerState.topic}`);
-            if (savedState) {
-                leitnerState.boxes = JSON.parse(savedState);
-            } else {
+            // --- Flowtime Logic ---
+            const flowtimeTimerEl = document.getElementById('flowtime-timer');
+            const flowtimeStatusEl = document.getElementById('flowtime-status');
+            const flowtimeStartStopBtn = document.getElementById('flowtime-start-stop');
+            const flowtimeLogEl = document.getElementById('flowtime-log');
+
+            function handleFlowtime() {
+                flowtimeState.seconds++;
+                flowtimeTimerEl.textContent = formatStopwatch(flowtimeState.seconds);
+            }
+
+            flowtimeStartStopBtn.addEventListener('click', () => {
+                flowtimeState.running = !flowtimeState.running;
+                if (flowtimeState.running) {
+                    flowtimeState.timer = setInterval(handleFlowtime, 1000);
+                    flowtimeStartStopBtn.textContent = 'Fokus Hilang';
+                    flowtimeStartStopBtn.classList.replace('bg-green-600', 'bg-red-600');
+                    flowtimeStatusEl.textContent = 'Sesi sedang berjalan...';
+                } else {
+                    clearInterval(flowtimeState.timer);
+                    const focusMinutes = Math.floor(flowtimeState.seconds / 60);
+                    let breakMinutes = 0;
+                    if (focusMinutes <= 25) breakMinutes = 5;
+                    else if (focusMinutes <= 50) breakMinutes = 8;
+                    else if (focusMinutes <= 90) breakMinutes = 15;
+                    else breakMinutes = 20;
+                    
+                    flowtimeStatusEl.textContent = `Istirahat disarankan: ${breakMinutes} menit`;
+                    const logEntry = document.createElement('p');
+                    logEntry.textContent = `Sesi: ${focusMinutes} menit, Istirahat: ${breakMinutes} menit`;
+                    flowtimeLogEl.prepend(logEntry);
+
+                    flowtimeState.seconds = 0;
+                    flowtimeTimerEl.textContent = formatStopwatch(0);
+                    flowtimeStartStopBtn.textContent = 'Mulai Sesi Baru';
+                    flowtimeStartStopBtn.classList.replace('bg-red-600', 'bg-green-600');
+                }
+            });
+
+            // --- 2-Minute Rule Logic ---
+            const twoMinTimerEl = document.getElementById('two-minute-timer');
+            const twoMinStatusEl = document.getElementById('two-minute-status');
+            const twoMinStartBtn = document.getElementById('two-minute-start');
+
+            function handleTwoMinute() {
+                twoMinuteState.seconds--;
+                twoMinTimerEl.textContent = formatTime(twoMinuteState.seconds);
+                if (twoMinuteState.seconds <= 0) {
+                    clearInterval(twoMinuteState.timer);
+                    twoMinuteState.running = false;
+                    twoMinStatusEl.textContent = 'Waktu Habis!';
+                    twoMinStartBtn.disabled = false;
+                    twoMinStartBtn.textContent = 'Mulai Lagi';
+                }
+            }
+
+            twoMinStartBtn.addEventListener('click', () => {
+                if (twoMinuteState.running) return;
+                twoMinuteState.running = true;
+                twoMinuteState.seconds = 120;
+                twoMinTimerEl.textContent = formatTime(120);
+                twoMinStatusEl.textContent = 'Ayo mulai!';
+                twoMinStartBtn.disabled = true;
+                twoMinuteState.timer = setInterval(handleTwoMinute, 1000);
+            });
+
+            // --- Leitner System Logic ---
+            function startLeitnerSystem() {
+                const leitnerTemplate = document.getElementById('leitner-system-template').content.cloneNode(true);
+                aiResultContainer.innerHTML = '';
+                aiResultContainer.appendChild(leitnerTemplate);
+                
+                leitnerState.topic = currentTopic;
+                leitnerState.cards = [...currentFlashcardsData];
+                loadLeitnerState();
+
+                document.getElementById('leitner-topic').textContent = leitnerState.topic;
+                document.getElementById('close-leitner-btn').addEventListener('click', () => {
+                    startFlashcards(currentTopic); // Go back to flashcard view
+                });
+                document.getElementById('leitner-reset-btn').addEventListener('click', () => {
+                    if (confirm('Anda yakin ingin mereset progress Leitner untuk topik ini?')) {
+                        resetLeitnerState();
+                        renderLeitnerBoxes();
+                    }
+                });
+
+                renderLeitnerBoxes();
+            }
+
+            function saveLeitnerState() {
+                localStorage.setItem(`leitner_${leitnerState.topic}`, JSON.stringify(leitnerState.boxes));
+            }
+
+            function loadLeitnerState() {
+                const savedState = localStorage.getItem(`leitner_${leitnerState.topic}`);
+                if (savedState) {
+                    leitnerState.boxes = JSON.parse(savedState);
+                } else {
+                    leitnerState.boxes = [[...Array(leitnerState.cards.length).keys()], [], [], [], []];
+                    saveLeitnerState();
+                }
+            }
+
+            function resetLeitnerState() {
                 leitnerState.boxes = [[...Array(leitnerState.cards.length).keys()], [], [], [], []];
                 saveLeitnerState();
             }
-        }
 
-        function resetLeitnerState() {
-            leitnerState.boxes = [[...Array(leitnerState.cards.length).keys()], [], [], [], []];
-            saveLeitnerState();
-        }
-
-        function renderLeitnerBoxes() {
-            const container = document.getElementById('leitner-boxes');
-            container.innerHTML = '';
-            const boxLabels = ["Setiap Hari", "Selasa & Kamis", "Mingguan", "2 Minggu", "Selesai"];
-            leitnerState.boxes.forEach((box, index) => {
-                const boxEl = document.createElement('div');
-                boxEl.className = 'p-2 md:p-4 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 border border-gray-200';
-                boxEl.innerHTML = `
-                    <p class="font-bold text-lg text-gray-800">${box.length}</p>
-                    <p class="text-xs text-gray-500">Kotak ${index + 1}</p>
-                    <p class="text-xs text-teal-600 mt-1 hidden md:block">${boxLabels[index]}</p>
-                `;
-                if (box.length > 0) {
-                    boxEl.addEventListener('click', () => startLeitnerPractice(index));
-                } else {
-                    boxEl.classList.add('opacity-50', 'cursor-not-allowed');
-                }
-                container.appendChild(boxEl);
-            });
-        }
-
-        function startLeitnerPractice(boxIndex) {
-            leitnerState.currentBox = boxIndex;
-            leitnerState.currentCardIndex = 0;
-            document.getElementById('leitner-practice-area').classList.remove('hidden');
-            document.getElementById('leitner-summary').classList.add('hidden');
-            displayLeitnerCard();
-        }
-
-        function displayLeitnerCard() {
-            const cardIndicesInBox = leitnerState.boxes[leitnerState.currentBox];
-            if (leitnerState.currentCardIndex >= cardIndicesInBox.length) {
-                endLeitnerPractice();
-                return;
+            function renderLeitnerBoxes() {
+                const container = document.getElementById('leitner-boxes');
+                container.innerHTML = '';
+                const boxLabels = ["Setiap Hari", "Selasa & Kamis", "Mingguan", "2 Minggu", "Selesai"];
+                leitnerState.boxes.forEach((box, index) => {
+                    const boxEl = document.createElement('div');
+                    boxEl.className = 'p-2 md:p-4 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 border border-gray-200';
+                    boxEl.innerHTML = `
+                        <p class="font-bold text-lg text-gray-800">${box.length}</p>
+                        <p class="text-xs text-gray-500">Kotak ${index + 1}</p>
+                        <p class="text-xs text-teal-600 mt-1 hidden md:block">${boxLabels[index]}</p>
+                    `;
+                    if (box.length > 0) {
+                        boxEl.addEventListener('click', () => startLeitnerPractice(index));
+                    } else {
+                        boxEl.classList.add('opacity-50', 'cursor-not-allowed');
+                    }
+                    container.appendChild(boxEl);
+                });
             }
 
-            const cardIndex = cardIndicesInBox[leitnerState.currentCardIndex];
-            const cardData = leitnerState.cards[cardIndex];
-            const cardContainer = document.getElementById('leitner-flashcard');
-            
-            cardContainer.classList.remove('flipped');
-            document.getElementById('leitner-front-content').textContent = cardData.term;
-            document.getElementById('leitner-back-content').textContent = cardData.definition;
-            document.getElementById('leitner-controls').classList.add('hidden');
+            function startLeitnerPractice(boxIndex) {
+                leitnerState.currentBox = boxIndex;
+                leitnerState.currentCardIndex = 0;
+                document.getElementById('leitner-practice-area').classList.remove('hidden');
+                document.getElementById('leitner-summary').classList.add('hidden');
+                displayLeitnerCard();
+            }
 
-            cardContainer.onclick = () => {
-                cardContainer.classList.add('flipped');
-                document.getElementById('leitner-controls').classList.remove('hidden');
-                cardContainer.onclick = null; // Prevent re-flipping
+            function displayLeitnerCard() {
+                const cardIndicesInBox = leitnerState.boxes[leitnerState.currentBox];
+                if (leitnerState.currentCardIndex >= cardIndicesInBox.length) {
+                    endLeitnerPractice();
+                    return;
+                }
+
+                const cardIndex = cardIndicesInBox[leitnerState.currentCardIndex];
+                const cardData = leitnerState.cards[cardIndex];
+                const cardContainer = document.getElementById('leitner-flashcard');
+                
+                cardContainer.classList.remove('flipped');
+                document.getElementById('leitner-front-content').textContent = cardData.term;
+                document.getElementById('leitner-back-content').textContent = cardData.definition;
+                document.getElementById('leitner-controls').classList.add('hidden');
+
+                cardContainer.onclick = () => {
+                    cardContainer.classList.add('flipped');
+                    document.getElementById('leitner-controls').classList.remove('hidden');
+                    cardContainer.onclick = null; // Prevent re-flipping
+                };
+
+                document.getElementById('leitner-correct-btn').onclick = () => handleLeitnerAnswer(true);
+                document.getElementById('leitner-wrong-btn').onclick = () => handleLeitnerAnswer(false);
+            }
+
+            function handleLeitnerAnswer(isCorrect) {
+                const cardIndicesInBox = leitnerState.boxes[leitnerState.currentBox];
+                const cardIndex = cardIndicesInBox.splice(leitnerState.currentCardIndex, 1)[0];
+
+                if (isCorrect) {
+                    const nextBox = Math.min(leitnerState.currentBox + 1, 4);
+                    leitnerState.boxes[nextBox].push(cardIndex);
+                } else {
+                    leitnerState.boxes[0].push(cardIndex);
+                }
+                
+                saveLeitnerState();
+                displayLeitnerCard();
+            }
+
+            function endLeitnerPractice() {
+                document.getElementById('leitner-practice-area').classList.add('hidden');
+                document.getElementById('leitner-summary').classList.remove('hidden');
+                document.getElementById('leitner-summary-text').textContent = `Sesi latihan untuk Kotak ${leitnerState.currentBox + 1} selesai!`;
+                renderLeitnerBoxes();
+            }
+
+            // --- Screening and Dashboard Logic (using localStorage) ---
+            const screeningQuestions = {
+                recall: [
+                    { q: "Objek apa yang berada di pojok kiri atas?", o: ["Pompa Sentrifugal", "Reaktor", "Simbol Segitiga", "Tidak ada apa-apa"], a: 0 },
+                    { q: "Apa warna simbol geometris yang ditampilkan?", o: ["Biru", "Hijau", "Merah", "Kuning"], a: 2 },
+                    { q: "Sebutkan urutan angka yang benar dari yang ditampilkan.", o: ["8-1-9-3", "8-3-9-1", "1-9-3-8", "3-8-1-9"], a: 1 },
+                    { q: "Berapa hasil penjumlahan angka pertama dan angka terakhir yang ditampilkan?", o: ["7", "9", "10", "12"], a: 1 },
+                    { q: "Kata apa yang ditampilkan di tengah layar?", o: ["KATALIS", "DISTILASI", "REAKTOR", "KONDENSOR"], a: 0 }
+                ],
+                reasoning: [
+                    { q: "Semua reaktor CSTR memiliki pengaduk. Reaktor T-101 tidak memiliki pengaduk. Kesimpulan manakah yang paling pasti benar?", o: ["Reaktor T-101 adalah reaktor PFR.", "Reaktor T-101 bukan reaktor CSTR.", "Semua reaktor PFR tidak memiliki pengaduk.", "Reaktor T-101 sudah rusak."], a: 1 },
+                    { q: "Perhatikan urutan proses berikut: Penguapan -> Kondensasi -> Pengumpulan. Pola ini paling mirip dengan proses apa?", o: ["Filtrasi", "Distilasi", "Absorpsi", "Adsorpsi"], a: 1 },
+                    { q: "Hubungan antara 'Pompa' dan 'Fluida' setara dengan hubungan antara 'Kompresor' dan '_______'.", o: ["Padatan", "Cairan", "Gas", "Pipa"], a: 2 },
+                    { q: "Data menunjukkan: Laju alir A > B; Laju alir C < B; Laju alir D > A. Manakah pernyataan yang PASTI salah?", o: ["Laju alir D adalah yang terbesar.", "Laju alir C adalah yang terkecil.", "Laju alir B lebih besar dari C.", "Laju alir A sama dengan C."], a: 3 },
+                    { q: "Dalam sistem pendingin, jika suhu fluida keluar lebih panas dari biasanya, dan laju alir fluida pendingin normal, kemungkinan penyebabnya adalah...", o: ["Laju alir fluida panas menurun.", "Terjadi penyumbatan di pipa pendingin.", "Suhu fluida panas yang masuk lebih tinggi dari biasanya.", "Pompa pendingin mati."], a: 2 }
+                ],
+                technical: [
+                    { q: "Menurut Hukum Termodinamika Kedua, mana dari proses berikut yang tidak mungkin terjadi secara spontan di sistem terisolasi?", o: ["Panas mengalir dari benda panas ke benda dingin.", "Air membeku menjadi es pada suhu -10°C.", "Sebuah mesin menghasilkan kerja tanpa membuang panas sama sekali.", "Gas berekspansi mengisi seluruh ruangan."], a: 2 },
+                    { q: "Untuk memisahkan dua cairan dengan perbedaan titik didih yang sangat kecil, metode manakah yang paling efisien?", o: ["Distilasi Sederhana", "Evaporasi", "Distilasi Fraksional dengan jumlah tray yang banyak", "Ekstraksi"], a: 2 },
+                    { q: "Dalam reaktor batch, untuk reaksi orde kedua (2A -> P), jika konsentrasi awal A digandakan, apa yang terjadi pada laju reaksi awal?", o: ["Menjadi setengahnya.", "Tetap sama.", "Menjadi dua kali lipat.", "Menjadi empat kali lipat."], a: 3 },
+                    { q: "Prinsip Bernoulli menjelaskan hubungan terbalik antara...", o: ["Kecepatan fluida dan massa jenisnya.", "Tekanan fluida dan ketinggiannya.", "Kecepatan fluida dan tekanannya.", "Viskositas fluida dan suhunya."], a: 2 },
+                    { q: "Fungsi utama dari steam trap pada jalur pipa uap (steam) adalah...", o: ["Mengatur tekanan uap.", "Mengukur laju alir uap.", "Memisahkan dan membuang kondensat (air) dari uap.", "Menaikkan suhu uap."], a: 2 }
+                ]
             };
 
-            document.getElementById('leitner-correct-btn').onclick = () => handleLeitnerAnswer(true);
-            document.getElementById('leitner-wrong-btn').onclick = () => handleLeitnerAnswer(false);
-        }
-
-        function handleLeitnerAnswer(isCorrect) {
-            const cardIndicesInBox = leitnerState.boxes[leitnerState.currentBox];
-            const cardIndex = cardIndicesInBox.splice(leitnerState.currentCardIndex, 1)[0];
-
-            if (isCorrect) {
-                const nextBox = Math.min(leitnerState.currentBox + 1, 4);
-                leitnerState.boxes[nextBox].push(cardIndex);
-            } else {
-                leitnerState.boxes[0].push(cardIndex);
-            }
-            
-            saveLeitnerState();
-            displayLeitnerCard();
-        }
-
-        function endLeitnerPractice() {
-            document.getElementById('leitner-practice-area').classList.add('hidden');
-            document.getElementById('leitner-summary').classList.remove('hidden');
-            document.getElementById('leitner-summary-text').textContent = `Sesi latihan untuk Kotak ${leitnerState.currentBox + 1} selesai!`;
-            renderLeitnerBoxes();
-        }
-
-        // Screening and Dashboard Logic
-        const screeningQuestions = {
-            recall: [
-                { q: "Objek apa yang berada di pojok kiri atas?", o: ["Pompa Sentrifugal", "Reaktor", "Simbol Segitiga", "Tidak ada apa-apa"], a: 0 },
-                { q: "Apa warna simbol geometris yang ditampilkan?", o: ["Biru", "Hijau", "Merah", "Kuning"], a: 2 },
-                { q: "Sebutkan urutan angka yang benar dari yang ditampilkan.", o: ["8-1-9-3", "8-3-9-1", "1-9-3-8", "3-8-1-9"], a: 1 },
-                { q: "Berapa hasil penjumlahan angka pertama dan angka terakhir yang ditampilkan?", o: ["7", "9", "10", "12"], a: 1 },
-                { q: "Kata apa yang ditampilkan di tengah layar?", o: ["KATALIS", "DISTILASI", "REAKTOR", "KONDENSOR"], a: 0 }
-            ],
-            reasoning: [
-                { q: "Semua reaktor CSTR memiliki pengaduk. Reaktor T-101 tidak memiliki pengaduk. Kesimpulan manakah yang paling pasti benar?", o: ["Reaktor T-101 adalah reaktor PFR.", "Reaktor T-101 bukan reaktor CSTR.", "Semua reaktor PFR tidak memiliki pengaduk.", "Reaktor T-101 sudah rusak."], a: 1 },
-                { q: "Perhatikan urutan proses berikut: Penguapan -> Kondensasi -> Pengumpulan. Pola ini paling mirip dengan proses apa?", o: ["Filtrasi", "Distilasi", "Absorpsi", "Adsorpsi"], a: 1 },
-                { q: "Hubungan antara 'Pompa' dan 'Fluida' setara dengan hubungan antara 'Kompresor' dan '_______'.", o: ["Padatan", "Cairan", "Gas", "Pipa"], a: 2 },
-                { q: "Data menunjukkan: Laju alir A > B; Laju alir C < B; Laju alir D > A. Manakah pernyataan yang PASTI salah?", o: ["Laju alir D adalah yang terbesar.", "Laju alir C adalah yang terkecil.", "Laju alir B lebih besar dari C.", "Laju alir A sama dengan C."], a: 3 },
-                { q: "Dalam sistem pendingin, jika suhu fluida keluar lebih panas dari biasanya, dan laju alir fluida pendingin normal, kemungkinan penyebabnya adalah...", o: ["Laju alir fluida panas menurun.", "Terjadi penyumbatan di pipa pendingin.", "Suhu fluida panas yang masuk lebih tinggi dari biasanya.", "Pompa pendingin mati."], a: 2 }
-            ],
-            technical: [
-                { q: "Menurut Hukum Termodinamika Kedua, mana dari proses berikut yang tidak mungkin terjadi secara spontan di sistem terisolasi?", o: ["Panas mengalir dari benda panas ke benda dingin.", "Air membeku menjadi es pada suhu -10°C.", "Sebuah mesin menghasilkan kerja tanpa membuang panas sama sekali.", "Gas berekspansi mengisi seluruh ruangan."], a: 2 },
-                { q: "Untuk memisahkan dua cairan dengan perbedaan titik didih yang sangat kecil, metode manakah yang paling efisien?", o: ["Distilasi Sederhana", "Evaporasi", "Distilasi Fraksional dengan jumlah tray yang banyak", "Ekstraksi"], a: 2 },
-                { q: "Dalam reaktor batch, untuk reaksi orde kedua (2A -> P), jika konsentrasi awal A digandakan, apa yang terjadi pada laju reaksi awal?", o: ["Menjadi setengahnya.", "Tetap sama.", "Menjadi dua kali lipat.", "Menjadi empat kali lipat."], a: 3 },
-                { q: "Prinsip Bernoulli menjelaskan hubungan terbalik antara...", o: ["Kecepatan fluida dan massa jenisnya.", "Tekanan fluida dan ketinggiannya.", "Kecepatan fluida dan tekanannya.", "Viskositas fluida dan suhunya."], a: 2 },
-                { q: "Fungsi utama dari steam trap pada jalur pipa uap (steam) adalah...", o: ["Mengatur tekanan uap.", "Mengukur laju alir uap.", "Memisahkan dan membuang kondensat (air) dari uap.", "Menaikkan suhu uap."], a: 2 }
-            ]
-        };
-
-        async function saveScreeningState() {
-            if (currentUser && !currentUser.isAnonymous) {
-                const userDocRef = doc(db, 'artifacts', appId, 'users', currentUser.uid);
-                await setDoc(userDocRef, { screening: screeningState }, { merge: true });
-            }
-        }
-
-        async function loadScreeningState() {
-            if (currentUser && !currentUser.isAnonymous) {
-                const userDocRef = doc(db, 'artifacts', appId, 'users', currentUser.uid);
-                const docSnap = await getDoc(userDocRef);
-                if (docSnap.exists() && docSnap.data().screening) {
-                    screeningState = docSnap.data().screening;
+            function saveScreeningState() {
+                if (currentUser) {
+                    localStorage.setItem(`screening_${currentUser.email}`, JSON.stringify(screeningState));
                 }
             }
-            updateDashboardView();
-        }
 
-        function updateDashboardView() {
-            const overlay = document.getElementById('screening-overlay');
-            const content = document.getElementById('dashboard-content');
-            if (screeningState.completed) {
-                overlay.classList.add('hidden');
-                content.classList.remove('opacity-0');
-                initializeCharts();
-            } else {
-                overlay.classList.remove('hidden');
-                content.classList.add('opacity-0');
-            }
-        }
-
-        document.getElementById('start-screening-btn').addEventListener('click', () => {
-            openModal('screening-modal-template', () => { /* Prevent closing */ });
-            startScreeningTest();
-        });
-
-        function startScreeningTest() {
-            const allQuestions = [...screeningQuestions.recall, ...screeningQuestions.reasoning, ...screeningQuestions.technical];
-            let currentQIndex = 0;
-            const userScreeningAnswers = [];
-
-            function displayScreeningQuestion() {
-                const qData = allQuestions[currentQIndex];
-                const type = currentQIndex < 5 ? 'recall' : (currentQIndex < 10 ? 'reasoning' : 'technical');
-                const typeText = {recall: 'Daya Ingat', reasoning: 'Daya Nalar', technical: 'Kompetensi Teknis'}[type];
-                
-                const contentEl = document.getElementById('screening-content');
-                contentEl.innerHTML = `
-                    <div class="mb-4 flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-800">${typeText}</h3>
-                        <span class="text-sm text-gray-500">${currentQIndex + 1} / ${allQuestions.length}</span>
-                    </div>
-                    <p class="text-lg mb-6 text-gray-700">${qData.q}</p>
-                    <div class="space-y-3">
-                        ${qData.o.map((opt, index) => `
-                            <label class="block">
-                                <input type="radio" name="screening-option" value="${index}" class="hidden peer">
-                                <div class="p-4 rounded-lg border border-gray-300 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-500 hover:bg-gray-100 cursor-pointer">
-                                    ${String.fromCharCode(65 + index)}. ${opt}
-                                </div>
-                            </label>
-                        `).join('')}
-                    </div>
-                    <div class="mt-8 text-right">
-                        <button id="next-screening-q-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg disabled:opacity-50" disabled>Selanjutnya</button>
-                    </div>
-                `;
-
-                const nextBtn = document.getElementById('next-screening-q-btn');
-                contentEl.querySelectorAll('input[name="screening-option"]').forEach(radio => {
-                    radio.addEventListener('change', () => nextBtn.disabled = false);
-                });
-
-                nextBtn.addEventListener('click', () => {
-                    const selected = contentEl.querySelector('input[name="screening-option"]:checked');
-                    if(selected) {
-                        userScreeningAnswers[currentQIndex] = parseInt(selected.value);
-                        currentQIndex++;
-                        if (currentQIndex < allQuestions.length) {
-                            displayScreeningQuestion();
-                        } else {
-                            finishScreening();
-                        }
+            function loadScreeningState() {
+                // Reset state for new user
+                screeningState = { scores: { recall: 0, reasoning: 0, technical: 0 }, completed: false };
+                if (currentUser) {
+                    const savedState = localStorage.getItem(`screening_${currentUser.email}`);
+                    if (savedState) {
+                        screeningState = JSON.parse(savedState);
                     }
-                });
-            }
-
-            function finishScreening() {
-                screeningState.scores = { recall: 0, reasoning: 0, technical: 0 };
-                userScreeningAnswers.forEach((answer, index) => {
-                    if (index < 5) { // Recall
-                        if (answer === screeningQuestions.recall[index].a) screeningState.scores.recall++;
-                    } else if (index < 10) { // Reasoning
-                        if (answer === screeningQuestions.reasoning[index-5].a) screeningState.scores.reasoning++;
-                    } else { // Technical
-                        if (answer === screeningQuestions.technical[index-10].a) screeningState.scores.technical++;
-                    }
-                });
-                screeningState.completed = true;
-                saveScreeningState();
-                closeModal();
+                }
                 updateDashboardView();
             }
 
-            displayScreeningQuestion();
-        }
+            function updateDashboardView() {
+                const overlay = document.getElementById('screening-overlay');
+                const content = document.getElementById('dashboard-content');
+                if (screeningState.completed) {
+                    overlay.classList.add('hidden');
+                    content.classList.remove('opacity-0');
+                    initializeCharts();
+                } else {
+                    overlay.classList.remove('hidden');
+                    content.classList.add('opacity-0');
+                }
+            }
 
-        function createChart(ctx, score, color) {
-            const maxScore = 5;
-            const data = {
-                datasets: [{
-                    data: [score, maxScore - score],
-                    backgroundColor: [color, '#E5E7EB'],
-                    borderWidth: 0,
-                    circumference: 180,
-                    rotation: 270,
-                }]
-            };
-            return new Chart(ctx, { type: 'doughnut', data: data, options: { responsive: true, cutout: '70%', plugins: { legend: { display: false }, tooltip: { enabled: false } } } });
-        }
+            document.getElementById('start-screening-btn').addEventListener('click', () => {
+                openModal('screening-modal-template', () => { /* Prevent closing */ });
+                startScreeningTest();
+            });
 
-        function initializeCharts() {
-            const { recall, reasoning, technical } = screeningState.scores;
+            function startScreeningTest() {
+                const allQuestions = [...screeningQuestions.recall, ...screeningQuestions.reasoning, ...screeningQuestions.technical];
+                let currentQIndex = 0;
+                const userScreeningAnswers = [];
+
+                function displayScreeningQuestion() {
+                    const qData = allQuestions[currentQIndex];
+                    const type = currentQIndex < 5 ? 'recall' : (currentQIndex < 10 ? 'reasoning' : 'technical');
+                    const typeText = {recall: 'Daya Ingat', reasoning: 'Daya Nalar', technical: 'Kompetensi Teknis'}[type];
+                    
+                    const contentEl = document.getElementById('screening-content');
+                    contentEl.innerHTML = `
+                        <div class="mb-4 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">${typeText}</h3>
+                            <span class="text-sm text-gray-500">${currentQIndex + 1} / ${allQuestions.length}</span>
+                        </div>
+                        <p class="text-lg mb-6 text-gray-700">${qData.q}</p>
+                        <div class="space-y-3">
+                            ${qData.o.map((opt, index) => `
+                                <label class="block">
+                                    <input type="radio" name="screening-option" value="${index}" class="hidden peer">
+                                    <div class="p-4 rounded-lg border border-gray-300 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-500 hover:bg-gray-100 cursor-pointer">
+                                        ${String.fromCharCode(65 + index)}. ${opt}
+                                    </div>
+                                </label>
+                            `).join('')}
+                        </div>
+                        <div class="mt-8 text-right">
+                            <button id="next-screening-q-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg disabled:opacity-50" disabled>Selanjutnya</button>
+                        </div>
+                    `;
+
+                    const nextBtn = document.getElementById('next-screening-q-btn');
+                    contentEl.querySelectorAll('input[name="screening-option"]').forEach(radio => {
+                        radio.addEventListener('change', () => nextBtn.disabled = false);
+                    });
+
+                    nextBtn.addEventListener('click', () => {
+                        const selected = contentEl.querySelector('input[name="screening-option"]:checked');
+                        if(selected) {
+                            userScreeningAnswers[currentQIndex] = parseInt(selected.value);
+                            currentQIndex++;
+                            if (currentQIndex < allQuestions.length) {
+                                displayScreeningQuestion();
+                            } else {
+                                finishScreening();
+                            }
+                        }
+                    });
+                }
+
+                function finishScreening() {
+                    screeningState.scores = { recall: 0, reasoning: 0, technical: 0 };
+                    userScreeningAnswers.forEach((answer, index) => {
+                        if (index < 5) { // Recall
+                            if (answer === screeningQuestions.recall[index].a) screeningState.scores.recall++;
+                        } else if (index < 10) { // Reasoning
+                            if (answer === screeningQuestions.reasoning[index-5].a) screeningState.scores.reasoning++;
+                        } else { // Technical
+                            if (answer === screeningQuestions.technical[index-10].a) screeningState.scores.technical++;
+                        }
+                    });
+                    screeningState.completed = true;
+                    saveScreeningState();
+                    closeModal();
+                    updateDashboardView();
+                }
+
+                displayScreeningQuestion();
+            }
+
+            function createChart(ctx, score, color) {
+                const maxScore = 5;
+                const data = {
+                    datasets: [{
+                        data: [score, maxScore - score],
+                        backgroundColor: [color, '#E5E7EB'],
+                        borderWidth: 0,
+                        circumference: 180,
+                        rotation: 270,
+                    }]
+                };
+                return new Chart(ctx, { type: 'doughnut', data: data, options: { responsive: true, cutout: '70%', plugins: { legend: { display: false }, tooltip: { enabled: false } } } });
+            }
+
+            function initializeCharts() {
+                const { recall, reasoning, technical } = screeningState.scores;
+                
+                if (screeningCharts.recall) screeningCharts.recall.destroy();
+                screeningCharts.recall = createChart(document.getElementById('recall-chart').getContext('2d'), recall, '#3B82F6');
+                document.getElementById('recall-score-text').textContent = `${recall}/5`;
+
+                if (screeningCharts.reasoning) screeningCharts.reasoning.destroy();
+                screeningCharts.reasoning = createChart(document.getElementById('reasoning-chart').getContext('2d'), reasoning, '#22C55E');
+                document.getElementById('reasoning-score-text').textContent = `${reasoning}/5`;
+
+                if (screeningCharts.technical) screeningCharts.technical.destroy();
+                screeningCharts.technical = createChart(document.getElementById('technical-chart').getContext('2d'), technical, '#F59E0B');
+                document.getElementById('technical-score-text').textContent = `${technical}/5`;
+
+                updateRecommendations();
+            }
             
-            if (screeningCharts.recall) screeningCharts.recall.destroy();
-            screeningCharts.recall = createChart(document.getElementById('recall-chart').getContext('2d'), recall, '#3B82F6');
-            document.getElementById('recall-score-text').textContent = `${recall}/5`;
+            function updateRecommendations() {
+                const { recall, reasoning, technical } = screeningState.scores;
+                const recallRec = document.getElementById('recall-recommendation');
+                if (recall >= 4) recallRec.textContent = "Anda siap untuk modul padat informasi. Coba metode Feynman untuk pemahaman mendalam.";
+                else recallRec.textContent = "Pecah materi menjadi bagian kecil (micro-learning). Gunakan metode Leitner & Active Recall.";
 
-            if (screeningCharts.reasoning) screeningCharts.reasoning.destroy();
-            screeningCharts.reasoning = createChart(document.getElementById('reasoning-chart').getContext('2d'), reasoning, '#22C55E');
-            document.getElementById('reasoning-score-text').textContent = `${reasoning}/5`;
+                const reasoningRec = document.getElementById('reasoning-recommendation');
+                if (reasoning >= 4) reasoningRec.textContent = "Anda siap untuk studi kasus dan problem-based learning. Tantang diri Anda!";
+                else reasoningRec.textContent = "Fokus pada penjelasan step-by-step. Perbanyak latihan dengan contoh soal.";
+                
+                const technicalRec = document.getElementById('technical-recommendation');
+                if (technical >= 4) technicalRec.textContent = "Anda bisa langsung masuk ke modul tingkat lanjut atau spesialisasi.";
+                else if (technical >= 2) technicalRec.textContent = "Disarankan memulai dari kurikulum standar untuk membangun fondasi yang kuat.";
+                else technicalRec.textContent = "Sangat disarankan memulai dari modul pengantar 'Dasar-Dasar Teknik Kimia'.";
+            }
 
-            if (screeningCharts.technical) screeningCharts.technical.destroy();
-            screeningCharts.technical = createChart(document.getElementById('technical-chart').getContext('2d'), technical, '#F59E0B');
-            document.getElementById('technical-score-text').textContent = `${technical}/5`;
-
-            updateRecommendations();
-        }
-        
-        function updateRecommendations() {
-            const { recall, reasoning, technical } = screeningState.scores;
-            const recallRec = document.getElementById('recall-recommendation');
-            if (recall >= 4) recallRec.textContent = "Anda siap untuk modul padat informasi. Coba metode Feynman untuk pemahaman mendalam.";
-            else recallRec.textContent = "Pecah materi menjadi bagian kecil (micro-learning). Gunakan metode Leitner & Active Recall.";
-
-            const reasoningRec = document.getElementById('reasoning-recommendation');
-            if (reasoning >= 4) reasoningRec.textContent = "Anda siap untuk studi kasus dan problem-based learning. Tantang diri Anda!";
-            else reasoningRec.textContent = "Fokus pada penjelasan step-by-step. Perbanyak latihan dengan contoh soal.";
-            
-            const technicalRec = document.getElementById('technical-recommendation');
-            if (technical >= 4) technicalRec.textContent = "Anda bisa langsung masuk ke modul tingkat lanjut atau spesialisasi.";
-            else if (technical >= 2) technicalRec.textContent = "Disarankan memulai dari kurikulum standar untuk membangun fondasi yang kuat.";
-            else technicalRec.textContent = "Sangat disarankan memulai dari modul pengantar 'Dasar-Dasar Teknik Kimia'.";
-        }
-
-
-        lucide.createIcons();
+            lucide.createIcons();
+        });
     </script>
 </body>
 </html>
