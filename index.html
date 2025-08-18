@@ -83,6 +83,31 @@
             align-items: center;
             justify-content: center;
         }
+        /* Custom slider styles */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            margin-top: -6px;
+            height: 20px;
+            width: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+        input[type=range]:focus::-webkit-slider-thumb {
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5);
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -276,8 +301,97 @@
 
                 <main class="flex-1 p-6 md:p-10 overflow-y-auto mt-16 md:mt-0">
                     <div id="page-dashboard" class="page-content relative">
-                        <div id="dashboard-content" class="transition-all duration-500">
-                            <h2 class="text-3xl font-bold mb-6 text-gray-900">Dashboard Diagnostik</h2>
+                        <div id="screening-overlay" class="absolute inset-0 bg-gray-100/50 backdrop-blur-md flex items-center justify-center z-10 rounded-lg">
+                            <div class="text-center p-8 bg-white rounded-xl shadow-2xl border border-gray-200">
+                                <h2 class="text-2xl font-bold mb-2 text-gray-900">Selamat Datang!</h2>
+                                <p class="text-gray-600 mb-6 max-w-sm">Untuk mempersonalisasi pengalaman belajar Anda, mari kita mulai dengan screening singkat untuk memahami gaya belajar Anda.</p>
+                                <button id="start-screening-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg">Screening Gaya Belajarmu Yuk!</button>
+                            </div>
+                        </div>
+
+                        <div id="dashboard-content" class="opacity-0 transition-opacity duration-500 space-y-8">
+                            <div>
+                                <h2 class="text-3xl font-bold mb-2 text-gray-900">Dashboard Pembelajar</h2>
+                                <p class="text-gray-500">Analisis gaya belajar dan kemajuan Anda secara real-time.</p>
+                            </div>
+
+                            <!-- Learning Style Questionnaire -->
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                                <h3 class="text-xl font-bold mb-6 text-gray-800">📝 Kuesioner Gaya Belajar</h3>
+                                <form id="learning-style-form" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                    <!-- Focus Span -->
+                                    <div>
+                                        <label for="focusSpan" class="block text-sm font-medium text-gray-700">Rentang Fokus</label>
+                                        <p class="text-xs text-gray-500 mb-2">Seberapa lama Anda bisa fokus tanpa terdistraksi?</p>
+                                        <div class="flex items-center space-x-4">
+                                            <span class="text-sm text-gray-500">1</span>
+                                            <input type="range" id="focusSpan" min="1" max="10" value="5" class="w-full">
+                                            <span class="text-sm text-gray-500">10</span>
+                                            <span id="focusSpanValue" class="font-bold text-blue-600 w-6 text-center">5</span>
+                                        </div>
+                                    </div>
+                                    <!-- Task Friction -->
+                                    <div>
+                                        <label for="taskFriction" class="block text-sm font-medium text-gray-700">Hambatan Memulai</label>
+                                        <p class="text-xs text-gray-500 mb-2">Seberapa sulit bagi Anda untuk memulai belajar/tugas?</p>
+                                        <div class="flex items-center space-x-4">
+                                            <span class="text-sm text-gray-500">1</span>
+                                            <input type="range" id="taskFriction" min="1" max="10" value="5" class="w-full">
+                                            <span class="text-sm text-gray-500">10</span>
+                                            <span id="taskFrictionValue" class="font-bold text-blue-600 w-6 text-center">5</span>
+                                        </div>
+                                    </div>
+                                    <!-- Learning Goal -->
+                                    <div>
+                                        <label for="needDeepUnderstanding" class="block text-sm font-medium text-gray-700">Tujuan Belajar</label>
+                                        <p class="text-xs text-gray-500 mb-2">"Hafalan" (1) vs "Konsep Mendalam" (10)?</p>
+                                        <div class="flex items-center space-x-4">
+                                            <span class="text-sm text-gray-500">1</span>
+                                            <input type="range" id="needDeepUnderstanding" min="1" max="10" value="5" class="w-full">
+                                            <span class="text-sm text-gray-500">10</span>
+                                            <span id="needDeepUnderstandingValue" class="font-bold text-blue-600 w-6 text-center">5</span>
+                                        </div>
+                                    </div>
+                                    <!-- Schedule Stability -->
+                                    <div>
+                                        <label for="scheduleStability" class="block text-sm font-medium text-gray-700">Stabilitas Jadwal</label>
+                                        <p class="text-xs text-gray-500 mb-2">Seberapa konsisten jadwal belajar Anda?</p>
+                                        <div class="flex items-center space-x-4">
+                                            <span class="text-sm text-gray-500">1</span>
+                                            <input type="range" id="scheduleStability" min="1" max="10" value="5" class="w-full">
+                                            <span class="text-sm text-gray-500">10</span>
+                                            <span id="scheduleStabilityValue" class="font-bold text-blue-600 w-6 text-center">5</span>
+                                        </div>
+                                    </div>
+                                    <!-- Exam Proximity -->
+                                    <div>
+                                        <label for="examProximity" class="block text-sm font-medium text-gray-700">Kedekatan Deadline</label>
+                                        <p class="text-xs text-gray-500 mb-2">Seberapa dekat Anda dengan ujian/deadline?</p>
+                                        <div class="flex items-center space-x-4">
+                                            <span class="text-sm text-gray-500">1</span>
+                                            <input type="range" id="examProximity" min="1" max="10" value="5" class="w-full">
+                                            <span class="text-sm text-gray-500">10</span>
+                                            <span id="examProximityValue" class="font-bold text-blue-600 w-6 text-center">5</span>
+                                        </div>
+                                    </div>
+                                    <!-- Stress Level -->
+                                    <div>
+                                        <label for="stressLevel" class="block text-sm font-medium text-gray-700">Tingkat Stres</label>
+                                        <p class="text-xs text-gray-500 mb-2">Seberapa tinggi tingkat stres yang Anda rasakan?</p>
+                                        <div class="flex items-center space-x-4">
+                                            <span class="text-sm text-gray-500">1</span>
+                                            <input type="range" id="stressLevel" min="1" max="10" value="5" class="w-full">
+                                            <span class="text-sm text-gray-500">10</span>
+                                            <span id="stressLevelValue" class="font-bold text-blue-600 w-6 text-center">5</span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div id="recommendation-result" class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <!-- Recommendation results will be injected here -->
+                                </div>
+                            </div>
+                            
+                            <!-- Progress Statistics -->
                              <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                                  <!-- Chart Daya Ingat -->
                                  <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
@@ -297,23 +411,16 @@
                                      </div>
                                      <p id="reasoning-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
                                  </div>
-                                 <!-- Chart Kompetensi Teknis -->
+                                 <!-- Chart Pengetahuan -->
                                  <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                                     <h3 class="text-xl font-bold text-center mb-4 text-yellow-500">Kompetensi Teknis</h3>
+                                     <h3 class="text-xl font-bold text-center mb-4 text-purple-600">Pengetahuan</h3>
                                      <div class="relative w-48 h-48 mx-auto">
-                                         <canvas id="technical-chart"></canvas>
-                                         <div id="technical-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
+                                         <canvas id="knowledge-chart"></canvas>
+                                         <div id="knowledge-score-text" class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-gray-800"></div>
                                      </div>
-                                     <p id="technical-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
+                                     <p id="knowledge-recommendation" class="text-center mt-4 text-gray-600 text-sm"></p>
                                  </div>
                              </div>
-                        </div>
-                        <div id="screening-overlay" class="absolute inset-0 bg-gray-100/50 backdrop-blur-md flex items-center justify-center z-10 rounded-lg">
-                            <div class="text-center p-8 bg-white rounded-xl shadow-2xl border border-gray-200">
-                                <h2 class="text-2xl font-bold mb-2 text-gray-900">Selamat Datang!</h2>
-                                <p class="text-gray-600 mb-6 max-w-sm">Untuk mempersonalisasi pengalaman belajar Anda, mari kita mulai dengan screening singkat untuk memahami gaya belajar Anda.</p>
-                                <button id="start-screening-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg">Screening Gaya Belajarmu Yuk!</button>
-                            </div>
                         </div>
                     </div>
 
@@ -798,6 +905,7 @@
             const burgerBtn = document.getElementById('burger-btn');
             const closeSidebarBtn = document.getElementById('close-sidebar-btn');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const learningStyleForm = document.getElementById('learning-style-form');
 
             // --- State Variables ---
             let currentUser = null;
@@ -811,8 +919,25 @@
             let flowtimeState = { timer: null, running: false, seconds: 0 };
             let twoMinuteState = { timer: null, running: false, seconds: 120 };
             let leitnerState = { topic: '', boxes: [[], [], [], [], []], cards: [], currentCardIndex: -1, currentBox: -1 };
-            let screeningState = { scores: { recall: 0, reasoning: 0, technical: 0 }, completed: false };
             let screeningCharts = {};
+            
+            // --- Unified User Data State ---
+            let userData = {};
+            const defaultUserData = {
+                screeningState: { scores: { recall: 0, reasoning: 0 }, completed: false },
+                learningProfile: {
+                    focusSpan: 5,
+                    taskFriction: 5,
+                    needDeepUnderstanding: 5,
+                    scheduleStability: 5,
+                    examProximity: 5,
+                    stressLevel: 5,
+                },
+                knowledgeScore: {
+                    totalCorrect: 0,
+                    totalAttempted: 0,
+                }
+            };
 
             // --- Sidebar Logic ---
             const openSidebar = () => {
@@ -837,7 +962,26 @@
                 document.getElementById(pageId).classList.remove('hidden');
             };
 
-            // --- Fake Authentication Logic ---
+            // --- Fake Authentication & Data Persistence ---
+            function saveUserData() {
+                if (currentUser) {
+                    localStorage.setItem(`userData_${currentUser.email}`, JSON.stringify(userData));
+                }
+            }
+
+            function loadUserData() {
+                const savedData = localStorage.getItem(`userData_${currentUser.email}`);
+                if (savedData) {
+                    userData = JSON.parse(savedData);
+                    // Ensure new properties are added if they don't exist in old saved data
+                    if (!userData.knowledgeScore) userData.knowledgeScore = defaultUserData.knowledgeScore;
+                    if (!userData.learningProfile) userData.learningProfile = defaultUserData.learningProfile;
+                } else {
+                    userData = JSON.parse(JSON.stringify(defaultUserData)); // Deep copy
+                }
+                updateDashboardFromUserData();
+            }
+
             const showAppForUser = (email) => {
                 const userEmail = email || "pengguna@catalys.id";
                 currentUser = {
@@ -850,7 +994,7 @@
                 settingsEmail.textContent = currentUser.email;
                 settingsUserid.textContent = currentUser.uid;
                 
-                loadScreeningState();
+                loadUserData();
                 showPage('main-app');
             };
 
@@ -896,7 +1040,6 @@
                     navLinks.forEach(nav => nav.classList.remove('bg-blue-100', 'text-blue-700', 'font-semibold'));
                     link.classList.add('bg-blue-100', 'text-blue-700', 'font-semibold');
                     
-                    // Close sidebar on mobile after navigation
                     if (window.innerWidth < 768) {
                         closeSidebar();
                     }
@@ -1001,6 +1144,13 @@
             function showResults() {
                 let score = 0;
                 userAnswers.forEach((answer, index) => { if (answer === currentQuizData[index].correctAnswerIndex) score++; });
+                
+                // Update and save knowledge score
+                userData.knowledgeScore.totalCorrect += score;
+                userData.knowledgeScore.totalAttempted += currentQuizData.length;
+                saveUserData();
+                initializeCharts(); // Update dashboard chart
+
                 const quizContent = document.getElementById('quiz-content');
                 quizContent.innerHTML = '';
                 currentQuizData.forEach((q, index) => {
@@ -1347,36 +1497,12 @@
                     { q: "Data menunjukkan: Laju alir A > B; Laju alir C < B; Laju alir D > A. Manakah pernyataan yang PASTI salah?", o: ["Laju alir D adalah yang terbesar.", "Laju alir C adalah yang terkecil.", "Laju alir B lebih besar dari C.", "Laju alir A sama dengan C."], a: 3 },
                     { q: "Dalam sistem pendingin, jika suhu fluida keluar lebih panas dari biasanya, dan laju alir fluida pendingin normal, kemungkinan penyebabnya adalah...", o: ["Laju alir fluida panas menurun.", "Terjadi penyumbatan di pipa pendingin.", "Suhu fluida panas yang masuk lebih tinggi dari biasanya.", "Pompa pendingin mati."], a: 2 }
                 ],
-                technical: [
-                    { q: "Menurut Hukum Termodinamika Kedua, mana dari proses berikut yang tidak mungkin terjadi secara spontan di sistem terisolasi?", o: ["Panas mengalir dari benda panas ke benda dingin.", "Air membeku menjadi es pada suhu -10°C.", "Sebuah mesin menghasilkan kerja tanpa membuang panas sama sekali.", "Gas berekspansi mengisi seluruh ruangan."], a: 2 },
-                    { q: "Untuk memisahkan dua cairan dengan perbedaan titik didih yang sangat kecil, metode manakah yang paling efisien?", o: ["Distilasi Sederhana", "Evaporasi", "Distilasi Fraksional dengan jumlah tray yang banyak", "Ekstraksi"], a: 2 },
-                    { q: "Dalam reaktor batch, untuk reaksi orde kedua (2A -> P), jika konsentrasi awal A digandakan, apa yang terjadi pada laju reaksi awal?", o: ["Menjadi setengahnya.", "Tetap sama.", "Menjadi dua kali lipat.", "Menjadi empat kali lipat."], a: 3 },
-                    { q: "Prinsip Bernoulli menjelaskan hubungan terbalik antara...", o: ["Kecepatan fluida dan massa jenisnya.", "Tekanan fluida dan ketinggiannya.", "Kecepatan fluida dan tekanannya.", "Viskositas fluida dan suhunya."], a: 2 },
-                    { q: "Fungsi utama dari steam trap pada jalur pipa uap (steam) adalah...", o: ["Mengatur tekanan uap.", "Mengukur laju alir uap.", "Memisahkan dan membuang kondensat (air) dari uap.", "Menaikkan suhu uap."], a: 2 }
-                ]
             };
-
-            function saveScreeningState() {
-                if (currentUser) {
-                    localStorage.setItem(`screening_${currentUser.email}`, JSON.stringify(screeningState));
-                }
-            }
-
-            function loadScreeningState() {
-                screeningState = { scores: { recall: 0, reasoning: 0, technical: 0 }, completed: false };
-                if (currentUser) {
-                    const savedState = localStorage.getItem(`screening_${currentUser.email}`);
-                    if (savedState) {
-                        screeningState = JSON.parse(savedState);
-                    }
-                }
-                updateDashboardView();
-            }
 
             function updateDashboardView() {
                 const overlay = document.getElementById('screening-overlay');
                 const content = document.getElementById('dashboard-content');
-                if (screeningState.completed) {
+                if (userData.screeningState.completed) {
                     overlay.classList.add('hidden');
                     content.classList.remove('opacity-0');
                     initializeCharts();
@@ -1392,14 +1518,14 @@
             });
 
             function startScreeningTest() {
-                const allQuestions = [...screeningQuestions.recall, ...screeningQuestions.reasoning, ...screeningQuestions.technical];
+                const allQuestions = [...screeningQuestions.recall, ...screeningQuestions.reasoning];
                 let currentQIndex = 0;
                 const userScreeningAnswers = [];
 
                 function displayScreeningQuestion() {
                     const qData = allQuestions[currentQIndex];
-                    const type = currentQIndex < 5 ? 'recall' : (currentQIndex < 10 ? 'reasoning' : 'technical');
-                    const typeText = {recall: 'Daya Ingat', reasoning: 'Daya Nalar', technical: 'Kompetensi Teknis'}[type];
+                    const type = currentQIndex < 5 ? 'recall' : 'reasoning';
+                    const typeText = {recall: 'Daya Ingat', reasoning: 'Daya Nalar'}[type];
                     
                     const contentEl = document.getElementById('screening-content');
                     contentEl.innerHTML = `
@@ -1443,27 +1569,24 @@
                 }
 
                 function finishScreening() {
-                    screeningState.scores = { recall: 0, reasoning: 0, technical: 0 };
+                    userData.screeningState.scores = { recall: 0, reasoning: 0 };
                     userScreeningAnswers.forEach((answer, index) => {
                         if (index < 5) {
-                            if (answer === screeningQuestions.recall[index].a) screeningState.scores.recall++;
-                        } else if (index < 10) {
-                            if (answer === screeningQuestions.reasoning[index-5].a) screeningState.scores.reasoning++;
+                            if (answer === screeningQuestions.recall[index].a) userData.screeningState.scores.recall++;
                         } else {
-                            if (answer === screeningQuestions.technical[index-10].a) screeningState.scores.technical++;
+                            if (answer === screeningQuestions.reasoning[index-5].a) userData.screeningState.scores.reasoning++;
                         }
                     });
-                    screeningState.completed = true;
-                    saveScreeningState();
+                    userData.screeningState.completed = true;
+                    saveUserData();
                     closeModal();
                     updateDashboardView();
                 }
 
-                displayScreeningTest();
+                displayScreeningQuestion();
             }
 
-            function createChart(ctx, score, color) {
-                const maxScore = 5;
+            function createChart(ctx, score, maxScore, color) {
                 const data = {
                     datasets: [{
                         data: [score, maxScore - score],
@@ -1477,38 +1600,140 @@
             }
 
             function initializeCharts() {
-                const { recall, reasoning, technical } = screeningState.scores;
+                const { recall, reasoning } = userData.screeningState.scores;
+                const { totalCorrect, totalAttempted } = userData.knowledgeScore;
                 
                 if (screeningCharts.recall) screeningCharts.recall.destroy();
-                screeningCharts.recall = createChart(document.getElementById('recall-chart').getContext('2d'), recall, '#3B82F6');
+                screeningCharts.recall = createChart(document.getElementById('recall-chart').getContext('2d'), recall, 5, '#3B82F6');
                 document.getElementById('recall-score-text').textContent = `${recall}/5`;
 
                 if (screeningCharts.reasoning) screeningCharts.reasoning.destroy();
-                screeningCharts.reasoning = createChart(document.getElementById('reasoning-chart').getContext('2d'), reasoning, '#22C55E');
+                screeningCharts.reasoning = createChart(document.getElementById('reasoning-chart').getContext('2d'), reasoning, 5, '#22C55E');
                 document.getElementById('reasoning-score-text').textContent = `${reasoning}/5`;
+                
+                const knowledgeScore = totalAttempted > 0 ? (totalCorrect / totalAttempted) * 5 : 0;
+                if (screeningCharts.knowledge) screeningCharts.knowledge.destroy();
+                screeningCharts.knowledge = createChart(document.getElementById('knowledge-chart').getContext('2d'), knowledgeScore, 5, '#8B5CF6');
+                document.getElementById('knowledge-score-text').textContent = `${knowledgeScore.toFixed(1)}/5`;
 
-                if (screeningCharts.technical) screeningCharts.technical.destroy();
-                screeningCharts.technical = createChart(document.getElementById('technical-chart').getContext('2d'), technical, '#F59E0B');
-                document.getElementById('technical-score-text').textContent = `${technical}/5`;
 
-                updateRecommendations();
+                updateRecommendationsText();
             }
             
-            function updateRecommendations() {
-                const { recall, reasoning, technical } = screeningState.scores;
+            function updateRecommendationsText() {
+                const { recall, reasoning } = userData.screeningState.scores;
+                const { totalCorrect, totalAttempted } = userData.knowledgeScore;
+                const knowledgePercent = totalAttempted > 0 ? (totalCorrect / totalAttempted) * 100 : 0;
+
                 const recallRec = document.getElementById('recall-recommendation');
-                if (recall >= 4) recallRec.textContent = "Anda siap untuk modul padat informasi. Coba metode Feynman untuk pemahaman mendalam.";
-                else recallRec.textContent = "Pecah materi menjadi bagian kecil (micro-learning). Gunakan metode Leitner & Active Recall.";
+                if (recall >= 4) recallRec.textContent = "Daya ingat Anda kuat. Manfaatkan untuk menghafal istilah kunci dengan Leitner System.";
+                else recallRec.textContent = "Latih ingatan dengan Active Recall. Gunakan flashcard dan metode Blurting.";
 
                 const reasoningRec = document.getElementById('reasoning-recommendation');
-                if (reasoning >= 4) reasoningRec.textContent = "Anda siap untuk studi kasus dan problem-based learning. Tantang diri Anda!";
-                else reasoningRec.textContent = "Fokus pada penjelasan step-by-step. Perbanyak latihan dengan contoh soal.";
+                if (reasoning >= 4) reasoningRec.textContent = "Penalaran Anda tajam. Asah lebih dalam dengan Feynman Technique untuk studi kasus.";
+                else reasoningRec.textContent = "Perkuat logika dengan mengerjakan lebih banyak contoh soal dan kuis terstruktur.";
                 
-                const technicalRec = document.getElementById('technical-recommendation');
-                if (technical >= 4) technicalRec.textContent = "Anda bisa langsung masuk ke modul tingkat lanjut atau spesialisasi.";
-                else if (technical >= 2) technicalRec.textContent = "Disarankan memulai dari kurikulum standar untuk membangun fondasi yang kuat.";
-                else technicalRec.textContent = "Sangat disarankan memulai dari modul pengantar 'Dasar-Dasar Teknik Kimia'.";
+                const knowledgeRec = document.getElementById('knowledge-recommendation');
+                if (knowledgePercent >= 80) knowledgeRec.textContent = "Pemahaman Anda sangat baik! Tantang diri dengan topik yang lebih advance.";
+                else knowledgeRec.textContent = "Terus berlatih dengan kuis untuk memperkuat fondasi pengetahuan Anda.";
             }
+
+            // --- Learning Style Questionnaire Logic ---
+            function updateSliderValue(sliderId, valueId) {
+                const slider = document.getElementById(sliderId);
+                const valueDisplay = document.getElementById(valueId);
+                valueDisplay.textContent = slider.value;
+            }
+
+            function calculateRecommendations() {
+                const profile = userData.learningProfile;
+                const methods = {
+                    pomodoro: { name: "Pomodoro", icon: "alarm-clock", score: 0, reason: "" },
+                    flowtime: { name: "Flowtime", icon: "infinity", score: 0, reason: "" },
+                    twoMinute: { name: "2-Minute Rule", icon: "play-circle", score: 0, reason: "" },
+                    feynman: { name: "Feynman", icon: "brain-circuit", score: 0, reason: "" },
+                    blurting: { name: "Blurting", icon: "pen-square", score: 0, reason: "" },
+                    leitner: { name: "Leitner System", icon: "layers", score: 0, reason: "" },
+                    quiz: { name: "Kuis Cepat", icon: "lightbulb", score: 0, reason: "" }
+                };
+
+                // Scoring based on provided logic
+                methods.pomodoro.score = (0.35 * (1 - Math.abs(profile.focusSpan - 6) / 5) + 0.25 * (profile.scheduleStability / 10) + 0.2 * (profile.examProximity / 10) + 0.2 * (Math.min(10 - profile.stressLevel, 7) / 7)) * 100;
+                methods.flowtime.score = (0.4 * (profile.focusSpan / 10) + 0.3 * ((10 - profile.scheduleStability) / 10) + 0.2 * ((10 - profile.stressLevel) / 10) + 0.1 * (profile.needDeepUnderstanding / 10)) * 100;
+                methods.twoMinute.score = (0.7 * (profile.taskFriction / 10) + 0.3 * (1 - (profile.focusSpan / 10))) * 100;
+                methods.feynman.score = (0.6 * (profile.needDeepUnderstanding / 10) + 0.2 * (profile.focusSpan / 10) + 0.2 * (1 - (profile.examProximity / 10))) * 100;
+                methods.leitner.score = (0.6 * ((10 - profile.needDeepUnderstanding) / 10) + 0.4 * (profile.examProximity / 10)) * 100;
+                methods.blurting.score = (0.7 * (profile.examProximity / 10) + 0.3 * ((10 - profile.needDeepUnderstanding) / 10)) * 100;
+                methods.quiz.score = (0.5 * (profile.examProximity / 10) + 0.5 * ((10 - profile.needDeepUnderstanding) / 10)) * 100;
+
+                // Simple rule adjustments
+                if (profile.taskFriction >= 7) methods.twoMinute.score += 20;
+                if (profile.stressLevel >= 7) {
+                    methods.flowtime.score += 15;
+                    methods.pomodoro.score -= 10;
+                }
+
+                const sortedMethods = Object.values(methods).sort((a, b) => b.score - a.score);
+                displayRecommendations(sortedMethods.slice(0, 3));
+            }
+
+            function displayRecommendations(topMethods) {
+                const container = document.getElementById('recommendation-result');
+                container.innerHTML = '';
+                topMethods.forEach(method => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-gray-50 p-4 rounded-lg border border-gray-200';
+                    card.innerHTML = `
+                        <div class="flex items-center mb-2">
+                            <i data-lucide="${method.icon}" class="w-5 h-5 mr-2 text-blue-600"></i>
+                            <h4 class="font-bold text-gray-800">${method.name}</h4>
+                        </div>
+                        <p class="text-xs text-gray-600">${getReasonForMethod(method.name)}</p>
+                    `;
+                    container.appendChild(card);
+                });
+                lucide.createIcons();
+            }
+
+            function getReasonForMethod(methodName) {
+                const p = userData.learningProfile;
+                switch(methodName) {
+                    case "Pomodoro": return p.focusSpan <= 4 ? "Cocok untuk membangun fokus dengan sesi belajar singkat dan istirahat teratur." : "Baik untuk menjaga ritme belajar Anda yang sudah cukup terstruktur.";
+                    case "Flowtime": return p.scheduleStability <= 4 ? "Ideal untuk jadwal fleksibel dan sesi belajar mendalam tanpa tekanan waktu." : "Membantu Anda masuk ke 'zona' fokus saat Anda memiliki rentang fokus yang panjang.";
+                    case "2-Minute Rule": return "Sangat efektif untuk mengatasi hambatan memulai tugas dan membangun momentum.";
+                    case "Feynman": return "Metode terbaik untuk memastikan pemahaman konsep secara mendalam, bukan sekadar hafalan.";
+                    case "Leitner System": return "Paling efisien untuk memperkuat hafalan fakta dan istilah kunci untuk jangka panjang.";
+                    case "Blurting": return "Cara cepat untuk menguji ingatan dan menemukan celah pemahaman saat deadline mendekat.";
+                    case "Kuis Cepat": return "Efektif untuk persiapan ujian cepat dan mengidentifikasi area yang perlu diulang.";
+                    default: return "Metode ini direkomendasikan berdasarkan profil belajar Anda.";
+                }
+            }
+
+            function updateDashboardFromUserData() {
+                // Set slider values and update display
+                Object.keys(userData.learningProfile).forEach(key => {
+                    const slider = document.getElementById(key);
+                    if (slider) {
+                        slider.value = userData.learningProfile[key];
+                        document.getElementById(`${key}Value`).textContent = slider.value;
+                    }
+                });
+                // Initial calculation
+                calculateRecommendations();
+                updateDashboardView();
+            }
+
+            learningStyleForm.addEventListener('input', (e) => {
+                if(e.target.type === 'range') {
+                    const valueId = `${e.target.id}Value`;
+                    document.getElementById(valueId).textContent = e.target.value;
+                    
+                    // Update state, save, and recalculate
+                    userData.learningProfile[e.target.id] = parseInt(e.target.value, 10);
+                    saveUserData();
+                    calculateRecommendations();
+                }
+            });
 
             lucide.createIcons();
         });
